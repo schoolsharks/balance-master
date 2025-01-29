@@ -86,12 +86,12 @@ const QuickOmnia = () => {
                       "linear-gradient(90deg, #D9D9D9 0%, #000000 94.65%)",
                   }}
                 >
-                  <Typography fontSize={"24px"} fontWeight={"700"}>
+                  <Typography fontSize={"24px"} fontWeight={"700"} zIndex={"2"}>
                     {option.option}
                   </Typography>
                 </Stack>
                 <Stack justifyContent={"center"}>
-                  <Typography margin={"auto 0"}>{option.optionText}</Typography>
+                  <Typography margin={"auto 0"} zIndex={"2"}>{option.optionText}</Typography>
                 </Stack>
               </Stack>
             ))}

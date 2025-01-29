@@ -531,7 +531,7 @@ const [badge,setBadge]=useState<any>()
                 >
                   {option.text}
                 </Typography>
-                <Stack direction={"row"} marginTop={"8px"}>
+                <Stack direction={"row"} marginTop={"8px"} gap="4px">
                   <Box flex={"1"} height={"28px"}>
                     <Box
                       height={"100%"}

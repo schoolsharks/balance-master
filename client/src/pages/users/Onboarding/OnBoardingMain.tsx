@@ -2,6 +2,7 @@ import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import msTanImage from "../../../assets/ms-tan.png"
 
 const OnBoardingMain = () => {
   const { page } = useParams();
@@ -102,6 +103,7 @@ const Page2 = () => {
   const theme = useTheme();
   return (
     <Stack padding={"24px"} color={"#fff"}>
+      <Box component={"img"} src={msTanImage} alt=""  sx={{position:"absolute",bottom:"0",right:"0",width:"230px"}}/>
       <Stack direction={"row"} justifyContent={"space-between"}>
         <Box>
           <Typography fontSize={"20px"} fontWeight={"400"}>
@@ -116,14 +118,6 @@ const Page2 = () => {
           </Typography>
           <Typography fontWeight={"700"}>(CFO, The company)</Typography>
         </Box>
-        <Box
-          border={"2px solid white"}
-          borderRadius={"50%"}
-          sx={{
-            width: "90px",
-            height: "90px",
-          }}
-        ></Box>
       </Stack>
       <Typography fontWeight={"400"} marginTop={"5px"}>
         She’s smart, no-nonsense, and loves solutions backed by data. <br />
