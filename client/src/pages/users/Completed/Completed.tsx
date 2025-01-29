@@ -21,25 +21,26 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import StrategicAdvisorBadge from "../../../assets/badges/Strategic_Advisor_Badge.png"
-import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.png"
-import RiskyBadge from "../../../assets/badges/Risky_Badge.png"
+import StrategicAdvisorBadge from "../../../assets/badges/Strategic_Advisor_Badge.png";
+import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.png";
+import RiskyBadge from "../../../assets/badges/Risky_Badge.png";
 import { useNavigate } from "react-router-dom";
 import { reset } from "../../../store/user/userActions";
+import graph from "../../../assets/graph.png"
 
 const Completed = () => {
   const theme = useTheme();
-  const navigate=useNavigate()
-  const dispatch=useDispatch<AppDispatch>()
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { name } = useSelector((state: RootState) => state.user);
 
   const { analytics, fetchCompletedStatus } = useCompleted();
-const [badge,setBadge]=useState<any>()
+  const [badge, setBadge] = useState<any>();
+  const [archeTypeDesc,setArcheTypeDesc]=useState<string>("")
   useEffect(() => {
     fetchCompletedStatus();
   }, []);
-
 
   const choisesColors = [
     { bg: "#ffffff", color: "#000000" },
@@ -52,26 +53,26 @@ const [badge,setBadge]=useState<any>()
     theme.palette.primary.red,
   ];
 
-
-
-  useEffect(()=>{
-    const archeType=analytics?.archeType
-    if(archeType==="Strategic Advisor"){
-      setBadge(StrategicAdvisorBadge)
+  useEffect(() => {
+    const archeType = analytics?.archeType;
+    if (archeType === "Strategic Advisor") {
+      setBadge(StrategicAdvisorBadge);
+      setArcheTypeDesc("The GOAT of decision-making—smart, balanced, and always ahead of the game.")
+    } else if (archeType === "Solid Performer") {
+      setBadge(SolidPerformerBadge);
+      setArcheTypeDesc("A steady player—makes mostly good choices but misses key opportunities to maximize trust and efficiency. Reliable, but not exceptional.")
+      
     }
-    else if(archeType==="Solid Performer"){
-      setBadge(SolidPerformerBadge)
+    if (archeType === "Risky") {
+      setBadge(RiskyBadge);
+      setArcheTypeDesc("Inconsistent and slow—too many suboptimal decisions make Ms. Tan question their judgment. A risky bet for critical tasks.")
     }
-    if(archeType==="Risky"){
-      setBadge(RiskyBadge)
-    }
-  },[analytics])
+  }, [analytics]);
 
-
-  const handleReset=()=>{
-    dispatch(reset()).unwrap()
-    navigate("/onboarding/1")
-  }
+  const handleReset = () => {
+    dispatch(reset()).unwrap();
+    navigate("/onboarding/1");
+  };
 
 
   if (!analytics) {
@@ -116,7 +117,7 @@ const [badge,setBadge]=useState<any>()
         Hi {name},
       </Typography>
 
-      <img src={badge} style={{width:"142px",margin:"26px auto 12px"}}/>
+      <img src={badge} style={{ width: "142px", margin: "26px auto 12px" }} />
 
       {/* Badge */}
       <Typography
@@ -132,21 +133,23 @@ const [badge,setBadge]=useState<any>()
         {analytics.archeType}
       </Typography>
       <Typography marginTop={"20px"} fontSize={"18px"} fontWeight={"400"}>
-        The GOAT of decision-making—smart, balanced, and always ahead of the
-        game.
+       {archeTypeDesc}
       </Typography>
 
       {/* Radar Chart */}
       <Typography fontWeight={"700"} fontSize={"24px"} marginTop={"48px"}>
-        Self Reflection
+        Reflections
       </Typography>
-      <Box height={"480px"} margin={"-72px 0"} sx={{"& *":{fontFamily:"Red Hat Display",fontSize:"12px"}}}>
+      <Box
+        height={"480px"}
+        margin={"-72px 0"}
+        sx={{ "& *": { fontFamily: "Red Hat Display", fontSize: "12px" } }}
+      >
         <ResponsiveContainer>
           <RadarChart
             cx="50%"
             cy="50%"
             outerRadius="65%"
-            
             data={analytics.choicesDistribution}
           >
             <PolarGrid />
@@ -168,27 +171,30 @@ const [badge,setBadge]=useState<any>()
             />
           </RadarChart>
         </ResponsiveContainer>
-          <Stack direction={"row"} marginTop={"-140px"} gap={"20px"} >
-            <Stack direction={"row"} alignItems={"center"} gap={"5px"}>
-              <Box
-                width={"18px"}
-                height={"18px"}
-                bgcolor={theme.palette.primary.red}
-                borderRadius="2px"
-
-              />
-              <Typography fontWeight={"400"} fontSize={"1rem"}>Self</Typography>
-            </Stack>
-            <Stack direction={"row"} alignItems={"center"} gap={"5px"}>
-              <Box
-                width={"18px"}
-                height={"18px"}
-                bgcolor={"#fff"}
-                borderRadius="2px"
-              />
-              <Typography fontWeight={"400"} fontSize={"1rem"}>Group</Typography>
-            </Stack>
+        <Stack direction={"row"} marginTop={"-140px"} gap={"20px"}>
+          <Stack direction={"row"} alignItems={"center"} gap={"5px"}>
+            <Box
+              width={"18px"}
+              height={"18px"}
+              bgcolor={theme.palette.primary.red}
+              borderRadius="2px"
+            />
+            <Typography fontWeight={"400"} fontSize={"1rem"}>
+              Self
+            </Typography>
           </Stack>
+          <Stack direction={"row"} alignItems={"center"} gap={"5px"}>
+            <Box
+              width={"18px"}
+              height={"18px"}
+              bgcolor={"#fff"}
+              borderRadius="2px"
+            />
+            <Typography fontWeight={"400"} fontSize={"1rem"}>
+              Group
+            </Typography>
+          </Stack>
+        </Stack>
       </Box>
 
       {/* Choises Types Info */}
@@ -345,9 +351,9 @@ const [badge,setBadge]=useState<any>()
         </Typography>
       </Stack>
 
-      {/* Omnia Vs Time   */}
+      {/* Optimal Choice Vs Time   */}
       <Typography fontSize={"24px"} fontWeight={"700"} marginTop={"48px"}>
-        Omnia VS Time
+        Optimal Choice VS Time
       </Typography>
       <Stack
         gap="4px"
@@ -434,7 +440,7 @@ const [badge,setBadge]=useState<any>()
         Self Service Tool would have saved 90.5 hours.
       </Typography>
       <Typography fontSize={"15px"} fontWeight={"300"}>
-        (Calculations = Total time - Optimal choice)
+        (Calculations = Total time - Time saved by Optimal choices)
       </Typography>
 
       {/* Omnia - The Choice */}
@@ -457,7 +463,7 @@ const [badge,setBadge]=useState<any>()
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-              Preferred Use Of Omnia Insights
+              Preferred Use Of Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.optimalChoices.toFixed()}%
@@ -472,7 +478,7 @@ const [badge,setBadge]=useState<any>()
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-              Group Preferred Omnia Insights
+              Group Preferred Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.overallOptimalChoices.toFixed()}%
@@ -493,7 +499,7 @@ const [badge,setBadge]=useState<any>()
             <Typography fontSize={"32px"} fontWeight={"700"}>
               20%{" "}
               <span style={{ fontWeight: "400", fontSize: "1rem" }}>
-                were active on omnia
+                were active on Insights
               </span>
             </Typography>
           </Stack>
@@ -501,8 +507,20 @@ const [badge,setBadge]=useState<any>()
       </Stack>
 
       {/* Omnia Insight Effect */}
+      <Stack padding="16px" bgcolor={"#ffffff"} borderRadius={"10px"} marginTop={"48px"}>
+        <Typography fontSize={"24px"} fontWeight={"700"} color="#000">
+          Optimal Choices Effect
+          <br />
+          (Group)
+        </Typography>
+        <Stack direction={"row"} gap={"4.5px"} alignItems={"center"} justifyContent={"flex-end"}>
+          <Box width="12px" height="12px" bgcolor={theme.palette.primary.grey}/>
+          <Typography color={theme.palette.primary.grey}>Placeholder</Typography>
+        </Stack>
+        <img src={graph} style={{width:"90%",margin:"auto"}}/>
+      </Stack>
 
-      {/* Why Omnia - QNA Responses */}
+      {/* Why Optimal - QNA Responses */}
 
       <Stack
         marginTop={"48px"}
@@ -511,7 +529,7 @@ const [badge,setBadge]=useState<any>()
         padding={"16px"}
       >
         <Typography fontSize={"24px"} fontWeight={"700"} color="#000">
-          Why Omnia
+          Placeholder
         </Typography>
         {analytics.whyOmnia.map((ques, index) => (
           <Stack key={index}>
@@ -560,7 +578,7 @@ const [badge,setBadge]=useState<any>()
         justifyContent={"space-around"}
         marginTop={"48px"}
       >
-        <IconButton onClick={()=>navigate("/onboarding/1")}>
+        <IconButton onClick={() => navigate("/onboarding/1")}>
           <HomeOutlined
             sx={{
               color: "#fff",

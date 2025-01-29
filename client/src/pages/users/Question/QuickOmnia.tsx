@@ -1,11 +1,11 @@
-import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import {  Button, Stack, Typography } from "@mui/material";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import { useEffect, useState } from "react";
 import useQuestions from "../../../hooks/useQuestions";
 import { useNavigate } from "react-router-dom";
+import { Check } from "@mui/icons-material";
 
 const QuickOmnia = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
   const [activeOption, setActiveOption] = useState<string>("");
   const {
@@ -19,7 +19,6 @@ const QuickOmnia = () => {
     setActiveOption(option);
     setTimeout(()=>{
         handleRespondQuickOmnia(quesId, option);
-        setActiveOption("")
     },300)
   };
 
@@ -31,13 +30,13 @@ const QuickOmnia = () => {
     <Stack
       sx={{
         minHeight: window.innerHeight,
-        bgcolor: theme.palette.primary.grey,
+        bgcolor: "#fff",
       }}
     >
-      <UpperTriangleBox sx={{ margin: "48px 24px" }}>
+      <UpperTriangleBox sx={{ margin: "48px 24px",borderRadius:"20px" }}>
         <Stack color={"#fff"} marginTop={"-48px"} padding={"0 16px 48px"}>
           <Typography fontSize={"24px"} fontWeight={"700"}>
-            Quick Omnia
+            Placeholder
           </Typography>
           <Typography fontSize={"16px"} fontWeight={"700"} marginTop={"32px"}>
             {currentQuestion?.question}
@@ -55,40 +54,26 @@ const QuickOmnia = () => {
                   handleOptionClick(currentQuestion?.quesId, option.option)
                 }
                 sx={{
-                  borderWidth: "1px 1px 1px 0",
+                  borderWidth: "1px",
                   cursor: "pointer",
                   position:"relative",
                   overflow:"hidden"
                 }}
               >
-                <Box
-                  position={"absolute"}
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    bgcolor: theme.palette.primary.red,
-                    zIndex: "1",
-                    transition: "all 0.3s ease",
-                    transform:
-                      option.option === activeOption
-                        ? "translateX(0%)"
-                        : "translateX(-100%)",
-                  }}
-                />
+               
                 <Stack
                   alignItems={"center"}
                   justifyContent={"center"}
                   minHeight={"100%"}
-                  minWidth="60px"
+                  minWidth="50px"
                   borderRadius={"5px"}
-                  sx={{
-                    background:
-                      "linear-gradient(90deg, #D9D9D9 0%, #000000 94.65%)",
-                  }}
                 >
-                  <Typography fontSize={"24px"} fontWeight={"700"} zIndex={"2"}>
+                    <Stack alignItems={"center"} justifyContent={"center"} border={`1px solid #fff`} width={"30px"} height={"30px"} borderRadius={"2px"}>
+                        {option.option===activeOption?<Check/>:null}
+                    </Stack>
+                  {/* <Typography fontSize={"24px"} fontWeight={"700"} zIndex={"2"}>
                     {option.option}
-                  </Typography>
+                  </Typography> */}
                 </Stack>
                 <Stack justifyContent={"center"}>
                   <Typography margin={"auto 0"} zIndex={"2"}>{option.optionText}</Typography>

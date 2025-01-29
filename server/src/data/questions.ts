@@ -13,29 +13,29 @@ export const questions = [
   {
     id: "1",
     question:
-      "It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK/Ireland/Netherlands, and 3 in Asia: Hong Kong/Singapore/Australia). They’re reviewing banking partners.",
+      "<p>It’s <b>Thursday evening</b>, and the <b>Deputy Treasurer</b> from <b>“The Company”</b> requests a <b>list of accounts</b> and <b>balances</b> in <b>six key markets</b>—three in Europe: (UK/Ireland/Netherlands), and 3 in Asia: (Hong Kong/Singapore/Australia) and three in Asia (Hong Kong, Singapore, Australia). They’re reviewing their banking partners, and you sense Ms. Tan’s watchful eye. You want to impress her but also worry about next steps eating into your precious hours.</p>",
     options: [
       {
         option: "A",
         optionText:
-          "Reach out to each local Sales Manager for those markets wanting local involvement.",
-        timeCost: 50,
-        trustShift: 0,
+          "Reach out to each respective <b>local Sales Manager</b> in Europe & Asia to obtain balances. You prefer local buy-in, but it’s not super quick.",
+        timeCost: 24,
+        trustShift: 2,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
         optionText:
-          "Use Insights (reporting tool) to quickly extract balances for all 6 markets.",
-        timeCost: 1,
-        trustShift: 4,
+          "Go into <b>Insights</b> to quickly extract balances for those 6 markets.",
+        timeCost: 0.3,
+        trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "C",
         optionText:
-          "Search your inbox for 15-day-old balance data, share that.",
-        timeCost: 2,
+          "Search your inbox for <b>15-day-old</b> balance update and share that.",
+        timeCost: 1,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
@@ -44,27 +44,27 @@ export const questions = [
   {
     id: "1A",
     question:
-      "Next day: Some Sales Managers in Europe responded with incomplete data; Hong Kong/Singapore are fine, but Australia is delayed. Ms. Tan is still waiting.",
+      "<p>It’s <b>the next day.</b> You’re anxious to see local Sales Managers’ responses from Europe, but the data is incomplete. Hong Kong and Singapore replied swiftly; however, the Australian Manager is busy and passed it to a colleague. You only have partial info. Ms. Tan’s follow-up email sits in your inbox, awaiting your best solution..</p>",
     options: [
       {
         option: "A",
-        optionText: "Share Partial Info",
-        timeCost: 75,
-        trustShift: 0,
+        optionText: "Send Ms. Tan everything you have, clarifying the <b>European</b> numbers need more refinement and the <b>Australia</b> balance will come in 2 more days.",
+        timeCost: 48,
+        trustShift: 2,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
-        optionText: "Wait to Consolidate",
-        timeCost: 100,
-        trustShift: -3,
+        optionText: "Postpone any reply until next week, once the Australian manager is back—3 days from now—for a fully consolidated single response.",
+        timeCost: 72,
+        trustShift: -13,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
       {
         option: "C",
-        optionText: "Use Insights",
-        timeCost: 2,
-        trustShift: 3,
+        optionText: "Skip further local chasing. Pull the balances for all 6 markets from <b>Insights</b>",
+        timeCost: 1,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
       },
     ],
@@ -72,27 +72,27 @@ export const questions = [
   {
     id: "1B",
     question:
-      "You used Insights (1 hour). Ms. Tan now asks for Indian entity balances too; you’re on the road, returning in about 6 “real” hours.",
+      "<p>You used <b>Insights</b> to retrieve data for the 6 requested markets swiftly. Ms. Tan’s thrilled response is almost audible. Then she follows up: They forgot to mention the balances for <b>an Indian entity</b> is needed. She needs that as well. But you’re <b>on the road</b> for a meeting, returning only in the <b>evening</b>. India is ~12 hours off your time zone.</p>",
     options: [
       {
         option: "A",
-        optionText: "Call Local Manager Friend",
-        timeCost: 0.5,
+        optionText: "Spend few minutes calling your friend, a local sales manager in India for a quick, response.",
+        timeCost: 10,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Use Insights Later",
-        timeCost: 12,
-        trustShift: 0,
+        optionText: "Inform Ms. Tan you can’t access your system until 6 hours later, sending a polite holding note.",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "C",
-        optionText: "Delegate to Service Team",
-        timeCost: 1,
-        trustShift: 3,
+        optionText: "Ask your Service Team to reference Insights on your behalf, delivering the data in ~30 minutes.",
+        timeCost: 0.5,
+        trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
       },
     ],
@@ -100,26 +100,26 @@ export const questions = [
   {
     id: "1C",
     question:
-      "You used Insights (1 hour). Ms. Tan now asks for Indian entity balances too; you’re on the road, returning in about 6 “real” hours.",
+      "<p>You responded with a 15-day-old balances email. Ms. Tan is in a hurry but quickly questions the data’s freshness. You realize some region’s balances might have changed significantly. This time you can’t be wrong. What do you do.</p>",
     options: [
       {
         option: "A",
-        optionText: "Send Old Balances Anyway",
-        timeCost: 1,
-        trustShift: -3,
+        optionText: "You ask for three more days, share the out-of-date data, disclaiming it’s from 15 days ago.",
+        timeCost: 0.5,
+        trustShift: -9,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Use Insights Now",
-        timeCost: 2,
-        trustShift: 3,
+        optionText: "Use Insights to pul real-time figures for those 4 markets, ensuring Ms. Tan gets accurate info.",
+        timeCost: 1,
+        trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "C",
-        optionText: "Partially Re-check",
-        timeCost: 50,
+        optionText: "Only re-verify the balances you’re “unsure of,” emailing local sales managers for help.",
+        timeCost: 24,
         trustShift: -3,
         choise: ChoiceTypes.ACCEPTABLE,
       },
@@ -130,26 +130,26 @@ export const questions = [
   {
     id: "2",
     question:
-      "“The Company” is implementing a Treasury Management System (TMS) and considering an acquisition funded by cash & debt in Japanese yen. Ms. Tan needs the current yen balance in their US-based yen account to decide quickly.",
+      "<p>While “The Company” implements a new Treasury Management System, Ms. Tan eyes a partial acquisition financed by cash + yen-denominated debt. She urgently needs to know the yen balance in their US-based yen account at your bank. Time is ticking; every hour spent searching can hamper her decision-making confidence.</p>",
     options: [
       {
         option: "A",
-        optionText: "Log into Insights",
-        timeCost: 0.5,
-        trustShift: 3,
+        optionText: "You use Insights for a near-instant yen balance from the US-based yen account.",
+        timeCost: 0.2,
+        trustShift: 10,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Client Service Manager",
-        timeCost: 12,
-        trustShift: 0,
+        optionText: "You assign the Client Service Manager to gather the yen balance. o Time Cost: 6 hours",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "C",
-        optionText: "Email Relationship Manager",
-        timeCost: 50,
+        optionText: "You email a local Relationship Manager for the yen balance, but they may need to check with other teams.",
+        timeCost: 24,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
@@ -158,26 +158,26 @@ export const questions = [
   {
     id: "2A",
     question:
-      "Ms. Tan is impressed. She wants daily yen balances for 7 days until the final acquisition decision.",
+      "<p>Ms. Tan is impressed over your immediate yen-balance data. She still hasn’t finalized the acquisition but now requests daily yen-balance updates for 7 days. You feel the pressure of providing these on top of other tasks, mindful of your hour budget.</p>",
     options: [
       {
         option: "A",
-        optionText: "Use Insights + Set Up Net Banking",
-        timeCost: 4,
-        trustShift: 3,
+        optionText: "Use Insights to share balances and suggest using Net Banking",
+        timeCost: 8,
+        trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Client Service for Daily Updates",
-        timeCost: 50,
-        trustShift: 0,
+        optionText: "Request Client Service for Daily Updates",
+        timeCost: 24,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "C",
-        optionText: "Email Local RM for Daily Info",
-        timeCost: 75,
+        optionText: "Email Local Relationship Manager for 7 Days",
+        timeCost: 72,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
@@ -186,26 +186,26 @@ export const questions = [
   {
     id: "2B",
     question:
-      "You get the yen balance from Client Service in 12 hours, repackage it for Ms. Tan. She wants daily data for 7 days.",
+      "<p>You receive the yen information from the Client Service Manager, repackage it for Ms. Tan. She’s still deciding but also demands 7 days of daily yen data.</p>",
     options: [
       {
         option: "A",
-        optionText: "Use Insights + Net Banking",
-        timeCost: 4,
-        trustShift: 3,
+        optionText: "Use Insights to share balances and suggest using",
+        timeCost: 8,
+        trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Client Service Daily",
-        timeCost: 50,
-        trustShift: 0,
+        optionText: "Request Client Service for Daily Updates",
+        timeCost: 24,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "C",
-        optionText: "Email Local RM Daily",
-        timeCost: 75,
+        optionText: "Email Local Relationship Manager for 7 Days",
+        timeCost: 72,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
@@ -214,27 +214,27 @@ export const questions = [
   {
     id: "2C",
     question:
-      "The local Relationship Manager has no yen info. Ms. Tan is waiting. Next step?",
+      "<p>The local Relationship Manager you emailed doesn’t have the yen info on hand. Ms. Tan’s is frustrated with the misses. You need a new approach quickly, or watch trust slip further.</p>",
     options: [
       {
         option: "A",
-        optionText: "Rush Request to Client Service",
-        timeCost: 12,
-        trustShift: 0,
+        optionText: "Rush to Client Service team doe help",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
-        optionText: "Use Insights DIY",
-        timeCost: 1,
-        trustShift: +3,
+        optionText: "Use Insights Yourself",
+        timeCost: 0.2,
+        trustShift: +5,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "C",
         optionText: "Escalate to Liquidity Team",
-        timeCost: 50,
-        trustShift: -3,
+        timeCost: 24,
+        trustShift: -5,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
     ],
@@ -245,28 +245,28 @@ export const questions = [
   {
     id: "3",
     question:
-      "Another group entity newly under your coverage wants to route 2,000 additional wires (MT103) from the US to the UK at the current price. You don’t know the wire pricing. Ms. Tan wants a quick solution.",
+      "<p>Another group entity of “The Company” transferred under your coverage after their previous Sales Manager left. Ms. Tan references a discussion about international wire transfer pricing: this entity aims to send 2,000 additional wires (MT103) from the US to the UK at the current price point. You don’t yet know the entity’s existing wire pricing. Ms. Tan wants clarity soon, feeling the clock tick.</p>",
     options: [
       {
         option: "A",
-        optionText: "Ask the Billing Team for the latest wire-pricing details.",
+        optionText: "Ask your local Billing Team to confirm the entity’s wire-transfer pricing.",
         timeCost: 8,
-        trustShift: 0,
+        trustShift: 3,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
         optionText:
-          "Dig through old emails from your ex-colleague, ask your line manager.",
-        timeCost: 12,
-        trustShift: -3,
+          "Spend time digging old emails from the ex-Sales Manager, then ask your line manager if they recall the pricing.",
+        timeCost: 6,
+        trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
       {
         option: "C",
-        optionText: "Use Insights to find the wire pricing for that entity.",
-        timeCost: 2,
-        trustShift: -3,
+        optionText: 'Go into Insights to find the wire pricing for that group entity.',
+        timeCost: 1,
+        trustShift: +5,
         choise: ChoiceTypes.OPTIMAL,
       },
     ],
@@ -274,27 +274,27 @@ export const questions = [
   {
     id: "3A",
     question:
-      "You used the Billing Team approach (8 hours). They respond next day, but you neglected to provide a relationship summary. They advise Product approval before finalizing. Ms. Tan is waiting.",
+      "<p>You approached Billing Team and got the wire pricing the next day. However, you didn’t share a broad relationship summary for Ms. Tan, and Billing suggests you get Product sign- off before finalizing the new wire price. Ms. Tan is waiting anxiously.</p>",
     options: [
       {
         option: "A",
-        optionText: "Summarize & Involve Client Service",
-        timeCost: 50,
-        trustShift: 0,
+         optionText: "Involve Client Service to co-ordinate with billing team",
+        timeCost: 24,
+        trustShift: -3,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
-        optionText: "Use Insights",
-        timeCost: 4,
-        trustShift: 3,
+        optionText: "Use Insights and take a call based on both the Entities relationships",
+        timeCost: 2,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "C",
-        optionText: "Escalate to Line Manager",
-        timeCost: 12,
-        trustShift: -3,
+        optionText: "Escalate to Line Manager and by pass billing team’s suggestion for now.",
+        timeCost: 6,
+        trustShift: -5,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
     ],
@@ -302,26 +302,26 @@ export const questions = [
   {
     id: "3B",
     question:
-      "After 12 hours, by late evening you realize you still don’t have the correct pricing. Ms. Tan is waiting. You must pick a new step fast.",
+      "<p>After 6 hours rummaging your inbox, it’s now 8 PM. You realize you still don’t have the correct wire pricing. Ms. Tan might be expecting an update tomorrow morning. Pressure is on.</p>",
     options: [
       {
         option: "A",
-        optionText: "Local Billing Team",
-        timeCost: 12,
-        trustShift: 0,
+        optionText: "Reach out to Local Billing Team for help",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "B",
-        optionText: "Insights",
+        optionText: "Get back to Insights and do it yourself",
         timeCost: 2,
-        trustShift: 3,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "C",
-        optionText: "Client Service",
-        timeCost: 50,
+        optionText: "Push to Client Service team and ask them to handle it",
+        timeCost: 24,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
@@ -330,27 +330,27 @@ export const questions = [
   {
     id: "3C",
     question:
-      "Within 2 hours, you got the pricing, evaluated cost & business value. Ms. Tan wants your final approach to confirm the 2,000 wires at that rate.",
+      "<p>You gather the wire pricing in about 1 hour, do some quick cost-value analysis for those 2,000 wires, and Ms. Tan is leaning toward immediate adoption. She still wants a final confirmation or a formal proposal.</p>",
     options: [
       {
         option: "A",
-        optionText: "Formal Proposal",
-        timeCost: 1,
-        trustShift: +3,
+        optionText: "Share Formal Proposal",
+        timeCost: 0.5,
+        trustShift: +4,
         choise: ChoiceTypes.OPTIMAL,
       },
       {
         option: "B",
-        optionText: "Seek Product Approval",
-        timeCost: 12,
-        trustShift: 0,
+        optionText: "Wait out for Product Approval",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
       },
       {
         option: "C",
-        optionText: "Request Full Relationship Review",
-        timeCost: 75,
-        trustShift: -3,
+        optionText: "Request for overall Relationship Review with Ms Tan, since it’s a new relationship",
+        timeCost: 48,
+        trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
       },
     ],
@@ -361,56 +361,11 @@ export const quickOmniaQuestions = [
   {
     quesId: "1",
     question:
-      "You’ve just been assigned to GTS, and on your second day...",
+      "You’ve just been assigned to The Company, and on your second day...",
     options: [
       {
         option: "A",
-        optionText:
-          "Email Ms. Tan with a firm note: “Why wasn’t I informed?”",
-      },
-      {
-        option: "B",
-        optionText:
-          "Speak with international manager, identify possible large payments, compile thoughtful questions.",
-      },
-      {
-        option: "C",
-        optionText:
-          "Wait until end of day to see if balances rebound or for Ms Tan to inform. ",
-      },
-    ],
-  },
-  {
-    quesId: "2",
-    question:
-      "You’ve just been assigned to GTS, and on your second day...",
-    options: [
-      {
-        option: "A",
-        optionText:
-          "Email Ms. Tan with a firm note: “Why wasn’t I informed?”",
-      },
-      {
-        option: "B",
-        optionText:
-          "Speak with international manager, identify possible large payments, compile thoughtful questions.",
-      },
-      {
-        option: "C",
-        optionText:
-          "Wait until end of day to see if balances rebound or for Ms Tan to inform. ",
-      },
-    ],
-  },
-  {
-    quesId: "3",
-    question:
-      "You’ve just been assigned to GTS, and on your second day...",
-    options: [
-      {
-        option: "A",
-        optionText:
-          "Email Ms. Tan with a firm note: “Why wasn’t I informed?”",
+        optionText: "Email Ms. Tan with a firm note: “Why wasn’t I informed?”",
       },
       {
         option: "B",

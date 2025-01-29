@@ -39,7 +39,7 @@ const useQuestions = () => {
           navigate("/completed");
         }
         if(gameStatus==="QUICK_OMNIA"){
-          navigate("/quick-omnia")
+          navigate("/quick-qna")
         }
       } else {
         console.error("Failed to fetch the next question:", response.data);

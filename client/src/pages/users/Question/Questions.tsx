@@ -30,7 +30,7 @@ const Questions = () => {
     setTimeout(() => {
       fetchNextQuestion(quesId, option);
       setActiveOption("")
-    }, 300);
+    }, 500);
   };
 
   if (!currentQuestion) {
@@ -40,7 +40,7 @@ const Questions = () => {
   return (
     <Stack
       bgcolor={"#000000"}
-      padding="24px 16px"
+      padding="28px 24px"
       color={"#fff"}
       sx={{ minHeight: window.innerHeight }}
     >
@@ -79,12 +79,12 @@ const Questions = () => {
       </Stack>
 
       {/* Question */}
-      <Typography fontSize={"16px"} fontWeight={"700"} marginTop={"32px"}>
-        {currentQuestion?.question}
+      <Typography fontSize={"16px"} fontWeight={"700"} marginTop={"32px"} dangerouslySetInnerHTML={{__html:currentQuestion?.question}}>
+        {/* {currentQuestion?.question} */}
       </Typography>
 
       {/* Options */}
-      <Stack gap={"12px"} marginTop={"32px"}>
+      <Stack gap={"12px"} marginTop={"auto"} paddingTop={"32px"}>
         {currentQuestion?.options.map((option, index) => (
           <Stack
             key={index}
@@ -132,8 +132,8 @@ const Questions = () => {
               </Typography>
             </Stack>
             <Stack justifyContent={"center"}>
-              <Typography margin={"auto 0"} zIndex={"2"}>
-                {option.optionText}
+              <Typography margin={"auto 0"} zIndex={"2"} dangerouslySetInnerHTML={{__html:option.optionText}}>
+                {/* {option.optionText} */}
               </Typography>
             </Stack>
           </Stack>
