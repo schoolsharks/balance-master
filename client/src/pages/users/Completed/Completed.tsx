@@ -446,7 +446,7 @@ const Completed = () => {
       {/* Omnia - The Choice */}
 
       <Typography fontSize={"24px"} fontWeight={"700"} marginTop={"48px"}>
-        Omnia- The Choice
+        Placeholder
       </Typography>
       <Stack
         gap="4px"

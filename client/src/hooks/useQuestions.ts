@@ -53,7 +53,6 @@ const useQuestions = () => {
     try {
       const response = await userApi.get("/users/quick-omnia");
       if (response.data?.success) {
-        console.log(response.data.data)
         const {questions,answered}=response.data.data
         setQuickOmniaQuestions(questions)
         setCurrentQuestion(questions[answered])
