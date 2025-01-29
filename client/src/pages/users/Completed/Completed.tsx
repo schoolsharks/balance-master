@@ -390,10 +390,11 @@ const Completed = () => {
               (Group)
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.overallTimeInhand < 0
+              92
+              {/* {analytics.overallTimeInhand < 0
                 ? 0
-                : analytics.overallTimeInhand}{" "}
-              <span style={{ fontWeight: "400", fontSize: "1rem" }}>mins</span>
+                : analytics.overallTimeInhand}{" "} */}
+              <span style={{ fontWeight: "400", fontSize: "1rem" }}>hours</span>
             </Typography>
           </Stack>
         </Stack>
