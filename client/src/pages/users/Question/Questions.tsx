@@ -72,7 +72,7 @@ const Questions = () => {
         >
           <Typography fontWeight={"400"}>Time In Hand</Typography>
           <Typography fontWeight={"800"} fontSize={"24px"} marginTop={"8px"}>
-            {timeInHand}{" "}
+            {timeInHand.toFixed()}{" "}
             <span style={{ fontWeight: "400", fontSize: "1rem" }}>hours</span>
           </Typography>
         </Box>

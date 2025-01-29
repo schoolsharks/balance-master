@@ -87,6 +87,7 @@ export const handleFetchNextQuestion = async (
           user.responses.push({ quesId, option });
           user.timeInHand -= newOption.timeCost;
           user.trustScore += newOption.trustShift;
+
           if (newOption.choise === ChoiceTypes.ACCEPTABLE) {
             user.colleaguesTime += newOption.timeCost;
             user.choicesDistribution.acceptable += 1;
@@ -120,6 +121,16 @@ export const handleFetchNextQuestion = async (
       }
     }
 
+    if(user.trustScore<0){
+      res.status(200).json({
+        success:true,
+        message:"Time ended",
+        gameStatus: user.quickOmniaResponses.length === quickOmniaQuestions.length ? "COMPLETED":"QUICK_OMNIA",
+        trustScore: user.trustScore,
+        timeInHand: user.timeInHand <0 ? 0 : user.timeInHand,
+      })
+    }
+
     // Determining the next question to send
     const [ques, subQuestion] = lastQuestionId.split("");
     if (subQuestion) {
@@ -128,6 +139,8 @@ export const handleFetchNextQuestion = async (
       question = questions.find((q) => q.id === `${ques}${lastResponse}`);
     }
   }
+
+
 
   if (!question) {
     await user.save();

@@ -437,7 +437,7 @@ const Completed = () => {
         </Stack>
       </Stack>
       <Typography fontSize={"18px"} fontWeight={"500"} marginTop={"16px"}>
-        Self Service Tool would have saved 90.5 hours.
+        Self Service Tool would have saved 189.5 hours.
       </Typography>
       <Typography fontSize={"15px"} fontWeight={"300"}>
         (Calculations = Total time - Time saved by Optimal choices)
