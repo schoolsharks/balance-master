@@ -79,12 +79,13 @@ const Questions = () => {
       </Stack>
 
       {/* Question */}
+      <Stack flex={"1"} justifyContent={"space-between"}>
       <Typography fontSize={"16px"} fontWeight={"700"} marginTop={"32px"} dangerouslySetInnerHTML={{__html:currentQuestion?.question}}>
         {/* {currentQuestion?.question} */}
       </Typography>
 
       {/* Options */}
-      <Stack gap={"12px"} marginTop={"auto"} paddingTop={"32px"}>
+      <Stack gap={"12px"} paddingTop={"32px"}>
         {currentQuestion?.options.map((option, index) => (
           <Stack
             key={index}
@@ -138,6 +139,7 @@ const Questions = () => {
             </Stack>
           </Stack>
         ))}
+      </Stack>
       </Stack>
     </Stack>
   );

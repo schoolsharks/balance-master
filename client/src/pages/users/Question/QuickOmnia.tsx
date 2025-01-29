@@ -1,4 +1,4 @@
-import {  Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import { useEffect, useState } from "react";
 import useQuestions from "../../../hooks/useQuestions";
@@ -8,18 +8,18 @@ import { Check } from "@mui/icons-material";
 const QuickOmnia = () => {
   const navigate = useNavigate();
   const [activeOption, setActiveOption] = useState<string>("");
+  const [responded,setResponded]=useState(false)
   const {
     currentQuestion,
-    quickOmniaCompleted,
+    // quickOmniaCompleted,
     handleRespondQuickOmnia,
     handleFetchQuickOmnia,
   } = useQuestions();
 
   const handleOptionClick = (quesId: string, option: string) => {
     setActiveOption(option);
-    setTimeout(()=>{
-        handleRespondQuickOmnia(quesId, option);
-    },300)
+    handleRespondQuickOmnia(quesId, option);
+    setResponded(true)
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const QuickOmnia = () => {
         bgcolor: "#fff",
       }}
     >
-      <UpperTriangleBox sx={{ margin: "48px 24px",borderRadius:"20px" }}>
+      <UpperTriangleBox sx={{ margin: "48px 24px", borderRadius: "20px" }}>
         <Stack color={"#fff"} marginTop={"-48px"} padding={"0 16px 48px"}>
           <Typography fontSize={"24px"} fontWeight={"700"}>
             Placeholder
@@ -56,11 +56,10 @@ const QuickOmnia = () => {
                 sx={{
                   borderWidth: "1px",
                   cursor: "pointer",
-                  position:"relative",
-                  overflow:"hidden"
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-               
                 <Stack
                   alignItems={"center"}
                   justifyContent={"center"}
@@ -68,22 +67,31 @@ const QuickOmnia = () => {
                   minWidth="50px"
                   borderRadius={"5px"}
                 >
-                    <Stack alignItems={"center"} justifyContent={"center"} border={`1px solid #fff`} width={"30px"} height={"30px"} borderRadius={"2px"}>
-                        {option.option===activeOption?<Check/>:null}
-                    </Stack>
+                  <Stack
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    border={`1px solid #fff`}
+                    width={"30px"}
+                    height={"30px"}
+                    borderRadius={"2px"}
+                  >
+                    {option.option === activeOption ? <Check /> : null}
+                  </Stack>
                   {/* <Typography fontSize={"24px"} fontWeight={"700"} zIndex={"2"}>
                     {option.option}
                   </Typography> */}
                 </Stack>
                 <Stack justifyContent={"center"}>
-                  <Typography margin={"auto 0"} zIndex={"2"}>{option.optionText}</Typography>
+                  <Typography margin={"auto 0"} zIndex={"2"}>
+                    {option.optionText}
+                  </Typography>
                 </Stack>
               </Stack>
             ))}
           </Stack>
           <Button
             variant="outlined"
-            disabled={!quickOmniaCompleted}
+            disabled={!responded}
             onClick={() => navigate("/completed")}
             sx={{
               width: "max-content",
@@ -93,8 +101,8 @@ const QuickOmnia = () => {
               padding: "0 20px",
               height: "40px",
               marginTop: "20px",
-              border: !quickOmniaCompleted ? "1px solid grey !important" : "",
-              color: !quickOmniaCompleted ? "grey !important" : "",
+              border: !responded ? "1px solid grey !important" : "",
+              color: !responded ? "grey !important" : "",
             }}
           >
             Results

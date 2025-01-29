@@ -288,7 +288,7 @@ const Completed = () => {
           marginTop={"4px"}
         >
           <Typography fontWeight={"500"}>Your Bank</Typography>
-          <Typography fontWeight={"500"}>Alpha</Typography>
+          <Typography fontWeight={"500"}>Alpha Bank</Typography>
         </Stack>
 
         {/* Group Trust Score */}
@@ -341,7 +341,7 @@ const Completed = () => {
           marginTop={"4px"}
         >
           <Typography fontWeight={"500"}>Your Bank</Typography>
-          <Typography fontWeight={"500"}>Alpha</Typography>
+          <Typography fontWeight={"500"}>Alpha Bank</Typography>
         </Stack>
 
         {/* Winning Probability */}

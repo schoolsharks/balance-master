@@ -1,6 +1,6 @@
 export const TOTAL_QUESTIONS = 6;
 export const BASE_TRUST_SCORE = 50;
-export const BASE_TIME = 100;
+export const BASE_TIME = 200;
 
 export enum ChoiceTypes {
   OPTIMAL = "OPTIMAL",

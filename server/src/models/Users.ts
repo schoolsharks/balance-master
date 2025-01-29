@@ -52,7 +52,7 @@ const UserSchema: Schema = new Schema(
     },
     timeInHand: {
       type: Number,
-      default: 100,
+      default: 200,
     },
     colleaguesTime: {
       type: Number,
