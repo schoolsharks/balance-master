@@ -11,8 +11,8 @@ import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import "./Login.css";
 import { ArrowBack, Close } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../store/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../store/store";
 import { createUser } from "../../../store/user/userActions";
 
 const Login = () => {

@@ -15,10 +15,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
 import {
-  Legend,
   PolarAngleAxis,
   PolarGrid,
-  PolarRadiusAxis,
   Radar,
   RadarChart,
   ResponsiveContainer,
@@ -217,7 +215,7 @@ const [badge,setBadge]=useState<any>()
             </AccordionSummary>
             <AccordionDetails sx={{ marginTop: "-20px" }}>
               {item.content.map((point, index) => (
-                <Stack direction={"row"} gap={"6px"}>
+                <Stack direction={"row"} key={index} gap={"6px"}>
                   <Typography>◆</Typography>
                   <Typography>{point}</Typography>
                 </Stack>
