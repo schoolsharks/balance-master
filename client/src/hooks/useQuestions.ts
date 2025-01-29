@@ -62,11 +62,15 @@ const useQuestions = () => {
         }
       } else {
         console.error("Failed to fetch quick Omnia questions:", response.data);
+        navigate("/completed")
       }
     } catch (error) {
       console.error("Error fetching quick omnia questions:", error);
+      navigate("/completed")
+
     }
   }
+
   const handleRespondQuickOmnia=async(quesId: string, option: string)=>{
     try {
       const response = await userApi.post("/users/quick-omnia", {
