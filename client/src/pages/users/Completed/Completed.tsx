@@ -26,9 +26,9 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import StrategicAdvisorBadge from "../../../assets/badges/Strategic_Advisor_Badge.png";
-import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.png";
-import RiskyBadge from "../../../assets/badges/Risky_Badge.png";
+import StrategicAdvisorBadge from "../../../assets/badges/Strategic_Advisor_Badge.webp";
+import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.webp";
+import RiskyBadge from "../../../assets/badges/Risky_Badge.webp";
 import { useNavigate } from "react-router-dom";
 import { reset } from "../../../store/user/userActions";
 // import { setUser } from "../../../store/user/userSlice";
