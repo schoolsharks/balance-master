@@ -22,8 +22,8 @@ export const questions = [
         timeCost: 24,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
-        scenarioEndPopup:null,
-        
+        scenarioEndPopup: null,
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -32,7 +32,8 @@ export const questions = [
         timeCost: 0.3,
         trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
     ],
   },
@@ -50,6 +51,7 @@ export const questions = [
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "You do provide immediate partial data, so Ms. Tan is not displeased, but she notices a 2-day gap for the Aussie piece. The trust score is affected.",
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -60,6 +62,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Realizing the local sales managers are slow, you pivot to the Service Manager for help retrieving the data. Your quick thinking boosts the Trust score, though one might ask, “Why didn’t you use Insights yourself?”",
+        colleguesTime: true,
       },
     ],
   },
@@ -77,6 +80,7 @@ export const questions = [
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "Leveraging your network can be an excellent approach, but how do you confirm if your contact is still in the system? How do you verify the data’s source? Also, wouldn’t sending screenshots risk a security breach?",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -87,6 +91,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "She’s willing to wait for half a day, so trust remains unchanged under this arrangement.",
+        colleguesTime: false,
       },
     ],
   },
@@ -103,7 +108,8 @@ export const questions = [
         timeCost: 0.1,
         trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -112,7 +118,8 @@ export const questions = [
         timeCost: 24,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: true,
       },
     ],
   },
@@ -129,6 +136,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Ms. Tan values your immediate support and the potential for future self-service. Remember that Insights might only provide data up to T-2, so clarify this with her and encourage using Net Banking for more direct access.",
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -139,6 +147,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Ms. Tan questions why you switched to a slower approach. Emphasize the benefits of Net Banking and its real-time balance visibility to justify a more efficient solution.",
+        colleguesTime: true,
       },
     ],
   },
@@ -155,6 +164,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Ms. Tan receives routine updates but occasionally notices communication delays.",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -165,6 +175,7 @@ export const questions = [
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "Too many intermediaries can cause further delays, fueling Ms. Tan’s impatience and reducing trust score.",
+        colleguesTime: true,
       },
     ],
   },
@@ -182,7 +193,8 @@ export const questions = [
         timeCost: 6,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -191,7 +203,8 @@ export const questions = [
         timeCost: 1,
         trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
     ],
   },
@@ -209,6 +222,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Another delay might have swayed the decision in Alpha Bank’s favor.",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -219,6 +233,7 @@ export const questions = [
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "Ms. Tan dislikes any delay, yet you need more time, and Alpha Bank’s influence keeps growing. What else could you have done to retain Ms. Tan’s confidence?",
+        colleguesTime: true,
       },
     ],
   },
@@ -236,6 +251,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "You salvaged the situation this time, but what if the same issue arises again?",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -246,6 +262,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust through timely solutions.",
+        colleguesTime: false,
       },
     ],
   },
@@ -264,7 +281,8 @@ export const questions = [
         timeCost: 6,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -273,7 +291,8 @@ export const questions = [
         timeCost: 1,
         trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
     ],
   },
@@ -291,6 +310,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Another delay might have swayed the decision in Alpha Bank’s favor.",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -301,6 +321,7 @@ export const questions = [
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "Ms. Tan dislikes any delay, yet you need more time, and Alpha Bank’s influence keeps growing. What else could you have done to retain Ms. Tan’s confidence?",
+        colleguesTime: true,
       },
     ],
   },
@@ -317,6 +338,7 @@ export const questions = [
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup: "Some time, more heads, may mean more delay.",
+        colleguesTime: true,
       },
       {
         option: "B",
@@ -327,6 +349,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+        colleguesTime: false,
       },
     ],
   },
@@ -345,7 +368,8 @@ export const questions = [
         timeCost: 6,
         trustShift: 2,
         choise: ChoiceTypes.OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -354,7 +378,8 @@ export const questions = [
         timeCost: 0.1,
         trustShift: -2,
         choise: ChoiceTypes.SUB_OPTIMAL,
-        scenarioEndPopup:null,
+        scenarioEndPopup: null,
+        colleguesTime: false,
       },
     ],
   },
@@ -372,6 +397,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -382,6 +408,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+        colleguesTime: false,
       },
     ],
   },
@@ -399,6 +426,7 @@ export const questions = [
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+        colleguesTime: false,
       },
       {
         option: "B",
@@ -409,6 +437,7 @@ export const questions = [
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
           "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+        colleguesTime: true,
       },
     ],
   },
@@ -417,8 +446,7 @@ export const questions = [
 export const quickOmniaQuestions = [
   {
     quesId: "1",
-    question:
-      "Why is Insights not your first choice?",
+    question: "Why is Insights not your first choice?",
     options: [
       {
         option: "A",
@@ -426,13 +454,11 @@ export const quickOmniaQuestions = [
       },
       {
         option: "B",
-        optionText:
-          "Prefer the old-school network of friends and colleagues.",
+        optionText: "Prefer the old-school network of friends and colleagues.",
       },
       {
         option: "C",
-        optionText:
-          "Not familiar with the tool.",
+        optionText: "Not familiar with the tool.",
       },
     ],
   },

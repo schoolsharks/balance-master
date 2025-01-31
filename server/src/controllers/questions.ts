@@ -1,5 +1,6 @@
 import { NextFunction, Request, response, Response } from "express";
 import {
+  BASE_TIME,
   ChoiceTypes,
   questions,
   quickOmniaQuestions,
@@ -97,8 +98,11 @@ export const handleFetchNextQuestion = async (
           user.timeInHand -= newOption.timeCost;
           user.trustScore += newOption.trustShift;
 
-          if (newOption.choise === ChoiceTypes.ACCEPTABLE) {
+          if(newOption.colleguesTime){
             user.colleaguesTime += newOption.timeCost;
+          }
+
+          if (newOption.choise === ChoiceTypes.ACCEPTABLE) {
             user.choicesDistribution.acceptable += 1;
           } else if (newOption.choise === ChoiceTypes.OPTIMAL) {
             user.choicesDistribution.optimal += 1;
@@ -113,7 +117,7 @@ export const handleFetchNextQuestion = async (
                 "overallStats.trustScore": newOption.trustShift,
                 "overallStats.timeInHand": -1 * newOption.timeCost,
                 "overallStats.colleaguesTime":
-                  newOption.choise === ChoiceTypes.ACCEPTABLE
+                  newOption.colleguesTime === true
                     ? newOption.timeCost
                     : 0,
                 "choicesDistribution.optimal":
@@ -281,8 +285,8 @@ export const handleGameCompleted = async (
   });
 
   const analytics = {
-    timeInHand: user?.timeInHand,
-    overallTimeInhand: session.overallStats.timeInHand / session.players,
+    timeInHand: (BASE_TIME - user?.timeInHand),
+    overallTimeInhand: (BASE_TIME - (session.overallStats.timeInHand / session.players)),
 
     trustScore: user?.trustScore,
     overallTrustScore: session.overallStats.trustScore / session.players,
