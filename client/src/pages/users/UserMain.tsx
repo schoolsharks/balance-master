@@ -32,8 +32,8 @@ const UserMain = () => {
 
       <Routes  location={location}>
         <Route path="/login" element={status==="LOGGED_IN"? <Navigate to="/questions"/>:<AnimatedPage Component={Login}/> } />
-        <Route path="/onboarding/:page" element={<AnimatedPage Component= {OnBoardingMain} />} />
-        <Route path="/questions" element={status==="IDLE"? <Navigate to="/login"/>:<AnimatedPage Component= {Questions}/>} />
+        <Route path="/onboarding/:page" element={<OnBoardingMain/>} />
+        <Route path="/questions" element={status==="IDLE"? <Navigate to="/login"/>:<Questions/>} />
         <Route path="/completed" element={status==="IDLE"? <Navigate to="/login"/>:<Completed />} />
         <Route path="/quick-qna" element={<QuickOmnia/>} />
         <Route path="/*" element={<Navigate to="/onboarding/1" />} />

@@ -1,4 +1,4 @@
-export const TOTAL_QUESTIONS = 6;
+export const TOTAL_QUESTIONS = 10;
 export const BASE_TRUST_SCORE = 50;
 export const BASE_TIME = 200;
 
@@ -13,115 +13,80 @@ export const questions = [
   {
     id: "1",
     question:
-      "<p>It’s <b>Thursday evening</b>, and the <b>Deputy Treasurer</b> from <b>“The Company”</b> requests a <b>list of accounts</b> and <b>balances</b> in <b>six key markets</b>—three in Europe: (UK/Ireland/Netherlands), and 3 in Asia: (Hong Kong/Singapore/Australia) and three in Asia (Hong Kong, Singapore, Australia). They’re reviewing their banking partners, and you sense Ms. Tan’s watchful eye. You want to impress her but also worry about next steps eating into your precious hours.</p>",
+      "It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners.",
     options: [
       {
         option: "A",
         optionText:
-          "Reach out to each respective <b>local Sales Manager</b> in Europe & Asia to obtain balances. You prefer local buy-in, but it’s not super quick.",
+          "Reach out to each respective local Sales Manager in Europe & Asia to obtain balances.",
         timeCost: 24,
-        trustShift: 2,
-        choise: ChoiceTypes.ACCEPTABLE,
+        trustShift: -6,
+        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
+        
       },
       {
         option: "B",
         optionText:
-          "Go into <b>Insights</b> to quickly extract balances for those 6 markets.",
+          "Go into Insights to quickly extract balances for the 6 markets.",
         timeCost: 0.3,
         trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText:
-          "Search your inbox for <b>15-day-old</b> balance update and share that.",
-        timeCost: 1,
-        trustShift: -3,
-        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
       },
     ],
   },
   {
     id: "1A",
     question:
-      "<p>It’s <b>the next day.</b> You’re anxious to see local Sales Managers’ responses from Europe, but the data is incomplete. Hong Kong and Singapore replied swiftly; however, the Australian Manager is busy and passed it to a colleague. You only have partial info. Ms. Tan’s follow-up email sits in your inbox, awaiting your best solution..</p>",
+      "Next day arrives. Europe data is incomplete, HK & SG responded, Aussie manager is busy. Partial info only. Ms. Tan is awaiting your next step.",
     options: [
       {
         option: "A",
-        optionText: "Send Ms. Tan everything you have, clarifying the <b>European</b> numbers need more refinement and the <b>Australia</b> balance will come in 2 more days.",
+        optionText:
+          "Send Ms. Tan what you have, clarifying European data is incomplete and remaining data arrives in 2 days.",
         timeCost: 48,
-        trustShift: 2,
-        choise: ChoiceTypes.ACCEPTABLE,
+        trustShift: -6,
+        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "You do provide immediate partial data, so Ms. Tan is not displeased, but she notices a 2-day gap for the Aussie piece. The trust score is affected.",
       },
       {
         option: "B",
-        optionText: "Postpone any reply until next week, once the Australian manager is back—3 days from now—for a fully consolidated single response.",
-        timeCost: 72,
-        trustShift: -13,
-        choise: ChoiceTypes.SUB_OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText: "Skip further local chasing. Pull the balances for all 6 markets from <b>Insights</b>",
+        optionText:
+          "Ask your Service Manager to use Insights to pull out Australia numbers",
         timeCost: 1,
-        trustShift: 4,
-        choise: ChoiceTypes.OPTIMAL,
+        trustShift: 1,
+        choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Realizing the local sales managers are slow, you pivot to the Service Manager for help retrieving the data. Your quick thinking boosts the Trust score, though one might ask, “Why didn’t you use Insights yourself?”",
       },
     ],
   },
   {
     id: "1B",
     question:
-      "<p>You used <b>Insights</b> to retrieve data for the 6 requested markets swiftly. Ms. Tan’s thrilled response is almost audible. Then she follows up: They forgot to mention the balances for <b>an Indian entity</b> is needed. She needs that as well. But you’re <b>on the road</b> for a meeting, returning only in the <b>evening</b>. India is ~12 hours off your time zone.</p>",
+      "You used Insights for 6 markets. Ms. Tan is thrilled, but she forgot to mention the need for balances for <b>Indian entity</b> also. You’re traveling, back only in the evening. India is 12 hours off your time zone. What do you do?",
     options: [
       {
         option: "A",
-        optionText: "Spend few minutes calling your friend, a local sales manager in India for a quick, response.",
-        timeCost: 10,
-        trustShift: -3,
+        optionText:
+          "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified. Response",
+        timeCost: 0.1,
+        trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "Leveraging your network can be an excellent approach, but how do you confirm if your contact is still in the system? How do you verify the data’s source? Also, wouldn’t sending screenshots risk a security breach?",
       },
       {
         option: "B",
-        optionText: "Inform Ms. Tan you can’t access your system until 6 hours later, sending a polite holding note.",
+        optionText:
+          "You inform Ms. Tan you’ll share data in 6 hours, sending a polite holding reply (DIY Insights).",
         timeCost: 6,
-        trustShift: 1,
-        choise: ChoiceTypes.ACCEPTABLE,
-      },
-      {
-        option: "C",
-        optionText: "Ask your Service Team to reference Insights on your behalf, delivering the data in ~30 minutes.",
-        timeCost: 0.5,
-        trustShift: 5,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
-      },
-    ],
-  },
-  {
-    id: "1C",
-    question:
-      "<p>You responded with a 15-day-old balances email. Ms. Tan is in a hurry but quickly questions the data’s freshness. You realize some region’s balances might have changed significantly. This time you can’t be wrong. What do you do.</p>",
-    options: [
-      {
-        option: "A",
-        optionText: "You ask for three more days, share the out-of-date data, disclaiming it’s from 15 days ago.",
-        timeCost: 0.5,
-        trustShift: -9,
-        choise: ChoiceTypes.SUB_OPTIMAL,
-      },
-      {
-        option: "B",
-        optionText: "Use Insights to pul real-time figures for those 4 markets, ensuring Ms. Tan gets accurate info.",
-        timeCost: 1,
-        trustShift: 5,
-        choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText: "Only re-verify the balances you’re “unsure of,” emailing local sales managers for help.",
-        timeCost: 24,
-        trustShift: -3,
-        choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "She’s willing to wait for half a day, so trust remains unchanged under this arrangement.",
       },
     ],
   },
@@ -130,112 +95,76 @@ export const questions = [
   {
     id: "2",
     question:
-      "<p>While “The Company” implements a new Treasury Management System, Ms. Tan eyes a partial acquisition financed by cash + yen-denominated debt. She urgently needs to know the yen balance in their US-based yen account at your bank. Time is ticking; every hour spent searching can hamper her decision-making confidence.</p>",
+      "While <b>“The Company”</b> is implementing a new TMS, they consider an acquisition funded by yen. Ms. Tan needs the yen balance in their US-based yen account.",
     options: [
       {
         option: "A",
-        optionText: "You use Insights for a near-instant yen balance from the US-based yen account.",
-        timeCost: 0.2,
-        trustShift: 10,
+        optionText: "“Log into Insights” to retrieve data and share",
+        timeCost: 0.1,
+        trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:null,
       },
       {
         option: "B",
-        optionText: "You assign the Client Service Manager to gather the yen balance. o Time Cost: 6 hours",
-        timeCost: 6,
-        trustShift: 1,
-        choise: ChoiceTypes.ACCEPTABLE,
-      },
-      {
-        option: "C",
-        optionText: "You email a local Relationship Manager for the yen balance, but they may need to check with other teams.",
+        optionText:
+          "You email a local Relaionship Manager to ask for help (You also want to build repo with him).",
         timeCost: 24,
-        trustShift: -3,
+        trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
       },
     ],
   },
   {
     id: "2A",
     question:
-      "<p>Ms. Tan is impressed over your immediate yen-balance data. She still hasn’t finalized the acquisition but now requests daily yen-balance updates for 7 days. You feel the pressure of providing these on top of other tasks, mindful of your hour budget.</p>",
+      "Ms. Tan is super impressed; no final decision yet, but wants daily yen balances for 7 days.",
     options: [
       {
         option: "A",
-        optionText: "Use Insights to share balances and suggest using Net Banking",
-        timeCost: 8,
-        trustShift: 8,
+        optionText: "Take Charge -  “Use Insights + Set Up Net Banking” ",
+        timeCost: 2,
+        trustShift: 6,
         choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:
+          "Ms. Tan values your immediate support and the potential for future self-service. Remember that Insights might only provide data up to T-2, so clarify this with her and encourage using Net Banking for more direct access.",
       },
       {
         option: "B",
-        optionText: "Request Client Service for Daily Updates",
+        optionText:
+          "Take help of local Relationship Manager for 7 Days and advise Ms Tan of the time difference. ",
         timeCost: 24,
-        trustShift: 1,
+        trustShift: 0,
         choise: ChoiceTypes.ACCEPTABLE,
-      },
-      {
-        option: "C",
-        optionText: "Email Local Relationship Manager for 7 Days",
-        timeCost: 72,
-        trustShift: -3,
-        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "Ms. Tan questions why you switched to a slower approach. Emphasize the benefits of Net Banking and its real-time balance visibility to justify a more efficient solution.",
       },
     ],
   },
   {
     id: "2B",
     question:
-      "<p>You receive the yen information from the Client Service Manager, repackage it for Ms. Tan. She’s still deciding but also demands 7 days of daily yen data.</p>",
+      "The local RM passed on the work to the support team. Ms. Tan grows uneasy. How do you fix it?",
     options: [
       {
         option: "A",
-        optionText: "Use Insights to share balances and suggest using",
-        timeCost: 8,
-        trustShift: 8,
-        choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "B",
-        optionText: "Request Client Service for Daily Updates",
-        timeCost: 24,
-        trustShift: 1,
-        choise: ChoiceTypes.ACCEPTABLE,
-      },
-      {
-        option: "C",
-        optionText: "Email Local Relationship Manager for 7 Days",
-        timeCost: 72,
-        trustShift: -3,
-        choise: ChoiceTypes.SUB_OPTIMAL,
-      },
-    ],
-  },
-  {
-    id: "2C",
-    question:
-      "<p>The local Relationship Manager you emailed doesn’t have the yen info on hand. Ms. Tan’s is frustrated with the misses. You need a new approach quickly, or watch trust slip further.</p>",
-    options: [
-      {
-        option: "A",
-        optionText: "Rush to Client Service team doe help",
+        optionText: "Rush Request to Client Service to lead the conversation.",
         timeCost: 6,
-        trustShift: 1,
+        trustShift: -1,
         choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Ms. Tan receives routine updates but occasionally notices communication delays.",
       },
       {
         option: "B",
-        optionText: "Use Insights Yourself",
-        timeCost: 0.2,
-        trustShift: +5,
-        choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText: "Escalate to Liquidity Team",
+        optionText:
+          "Escalate to Liquidity Team for their support, You still be the face",
         timeCost: 24,
-        trustShift: -5,
+        trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "Too many intermediaries can cause further delays, fueling Ms. Tan’s impatience and reducing trust score.",
       },
     ],
   },
@@ -245,113 +174,241 @@ export const questions = [
   {
     id: "3",
     question:
-      "<p>Another group entity of “The Company” transferred under your coverage after their previous Sales Manager left. Ms. Tan references a discussion about international wire transfer pricing: this entity aims to send 2,000 additional wires (MT103) from the US to the UK at the current price point. You don’t yet know the entity’s existing wire pricing. Ms. Tan wants clarity soon, feeling the clock tick.</p>",
+      "You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms. Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms. Tan expects a swift solution.",
     options: [
       {
         option: "A",
-        optionText: "Ask your local Billing Team to confirm the entity’s wire-transfer pricing.",
-        timeCost: 8,
-        trustShift: 3,
-        choise: ChoiceTypes.ACCEPTABLE,
+        optionText: "Check the Sales Manager's Inbox or ask the line manager",
+        timeCost: 6,
+        trustShift: -1,
+        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
       },
       {
         option: "B",
         optionText:
-          "Spend time digging old emails from the ex-Sales Manager, then ask your line manager if they recall the pricing.",
-        timeCost: 6,
-        trustShift: -6,
-        choise: ChoiceTypes.SUB_OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText: 'Go into Insights to find the wire pricing for that group entity.',
+          "Use Insights - Pull the wire pricing for that entity from Insights.",
         timeCost: 1,
-        trustShift: +5,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:null,
       },
     ],
   },
   {
     id: "3A",
     question:
-      "<p>You approached Billing Team and got the wire pricing the next day. However, you didn’t share a broad relationship summary for Ms. Tan, and Billing suggests you get Product sign- off before finalizing the new wire price. Ms. Tan is waiting anxiously.</p>",
+      "You used 6 hours rummaging. By 8 PM, you still lack wire pricing. Ms. Tan’s patience is wearing thin. You must pick a fresh approach quickly.",
     options: [
       {
         option: "A",
-         optionText: "Involve Client Service to co-ordinate with billing team",
-        timeCost: 24,
-        trustShift: -3,
+        optionText:
+          "Seek help from Local Billing team and respond to Ms Tan (you have ensured to give details of both the group) ",
+        timeCost: 6,
+        trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Another delay might have swayed the decision in Alpha Bank’s favor.",
       },
       {
         option: "B",
-        optionText: "Use Insights and take a call based on both the Entities relationships",
-        timeCost: 2,
-        trustShift: 4,
-        choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "C",
-        optionText: "Escalate to Line Manager and by pass billing team’s suggestion for now.",
-        timeCost: 6,
+        optionText:
+          "You reached out to Local Billing team and they advised to seek product sign off since you missed sharing revenue details from the overall relationship. ",
+        timeCost: 12,
         trustShift: -5,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "Ms. Tan dislikes any delay, yet you need more time, and Alpha Bank’s influence keeps growing. What else could you have done to retain Ms. Tan’s confidence?",
       },
     ],
   },
   {
     id: "3B",
     question:
-      "<p>After 6 hours rummaging your inbox, it’s now 8 PM. You realize you still don’t have the correct wire pricing. Ms. Tan might be expecting an update tomorrow morning. Pressure is on.</p>",
+      "You realize Insights can help, but you’re struggling to navigate the system effectively.",
     options: [
       {
         option: "A",
-        optionText: "Reach out to Local Billing Team for help",
-        timeCost: 6,
+        optionText:
+          "Go back to the local billing team, explain the situation clearly, and request their assistance.",
+        timeCost: 24,
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "You salvaged the situation this time, but what if the same issue arises again?",
       },
       {
         option: "B",
-        optionText: "Get back to Insights and do it yourself",
+        optionText:
+          "Alternatively, consult the appropriate subject-matter expert or take the initiative to handle it yourself.",
         timeCost: 2,
         trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust through timely solutions.",
       },
+    ],
+  },
+
+  //   Scenario 4
+
+  {
+    id: "4",
+    question:
+      "You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms. Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms. Tan expects a swift solution.",
+    options: [
       {
-        option: "C",
-        optionText: "Push to Client Service team and ask them to handle it",
-        timeCost: 24,
+        option: "A",
+        optionText:
+          "Check the Sales Manager's Inbox or ask the line manager for previous approvals",
+        timeCost: 6,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
+      },
+      {
+        option: "B",
+        optionText:
+          "Use Insights - Pull the wire pricing for that entity from Insights.",
+        timeCost: 1,
+        trustShift: 4,
+        choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:null,
       },
     ],
   },
   {
-    id: "3C",
+    id: "4A",
     question:
-      "<p>You gather the wire pricing in about 1 hour, do some quick cost-value analysis for those 2,000 wires, and Ms. Tan is leaning toward immediate adoption. She still wants a final confirmation or a formal proposal.</p>",
+      "You used 6 hours rummaging. By 8 PM, you still lack wire pricing. Ms. Tan’s patience is wearing thin. You must pick a fresh approach quickly.",
     options: [
       {
         option: "A",
-        optionText: "Share Formal Proposal",
-        timeCost: 0.5,
-        trustShift: +4,
-        choise: ChoiceTypes.OPTIMAL,
-      },
-      {
-        option: "B",
-        optionText: "Wait out for Product Approval",
+        optionText:
+          "Seek help from Local Billing team and respond to Ms Tan (you have ensured to give details of both the group) ",
         timeCost: 6,
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Another delay might have swayed the decision in Alpha Bank’s favor.",
       },
       {
-        option: "C",
-        optionText: "Request for overall Relationship Review with Ms Tan, since it’s a new relationship",
-        timeCost: 48,
-        trustShift: -6,
+        option: "B",
+        optionText:
+          "You reached out to Local Billing team and they advised to seek product sign off since you missed sharing revenue details from the overall relationship. ",
+        timeCost: 12,
+        trustShift: -5,
         choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:
+          "Ms. Tan dislikes any delay, yet you need more time, and Alpha Bank’s influence keeps growing. What else could you have done to retain Ms. Tan’s confidence?",
+      },
+    ],
+  },
+  {
+    id: "4B",
+    question:
+      "You realize Insights can help, but you’re struggling to navigate the system effectively.",
+    options: [
+      {
+        option: "A",
+        optionText:
+          "Go back to the local billing team, explain the situation clearly, and request their assistance.",
+        timeCost: 24,
+        trustShift: 1,
+        choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup: "Some time, more heads, may mean more delay.",
+      },
+      {
+        option: "B",
+        optionText:
+          "Alternatively, consult the appropriate subject-matter expert or take the initiative to handle it yourself.",
+        timeCost: 2,
+        trustShift: 4,
+        choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+      },
+    ],
+  },
+
+  //   Scenario 5
+
+  {
+    id: "5",
+    question:
+      "You are getting comfortable with Insights and have discovered that SGD has 15 million. You fear this might move away. What should be your next move, considering Alpha Bank is seizing every opportunity?",
+    options: [
+      {
+        option: "A",
+        optionText:
+          "Dive deeper into Insights, reviewing the balances over a specific period and discussing any findings with the local Sales Manager. ",
+        timeCost: 6,
+        trustShift: 2,
+        choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:null,
+      },
+      {
+        option: "B",
+        optionText:
+          "Email Ms. Tan to understand the reason for the large balances and learn what she plans to do next.",
+        timeCost: 0.1,
+        trustShift: -2,
+        choise: ChoiceTypes.SUB_OPTIMAL,
+        scenarioEndPopup:null,
+      },
+    ],
+  },
+  {
+    id: "5A",
+    question:
+      "After facing some resistance from the local sales manager, you realize that it is in the client's best interest to suggest investing their surplus balances. What do you do?",
+    options: [
+      {
+        option: "A",
+        optionText:
+          "Use Insights, prepare a comparative chart of balances, and suggest a few investment options in consultation with the local sales manager. This could lead to significant revenue dip",
+        timeCost: 2,
+        trustShift: 8,
+        choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+      },
+      {
+        option: "B",
+        optionText:
+          "Keep a watch on the balance situation on Insights, but don’t bring it up unless Ms. Tan mentions it. ",
+        timeCost: 18,
+        trustShift: 0,
+        choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+      },
+    ],
+  },
+  {
+    id: "5B",
+    question:
+      "Ms. Tan, thank you for pointing it out. However, at the same time, request a detailed analysis of all accounts globally to reassess the treasury position. What should you do?",
+    options: [
+      {
+        option: "A",
+        optionText:
+          "Use Insights to pull historical and current balances, then share a quick summary report.",
+        timeCost: 8,
+        trustShift: 6,
+        choise: ChoiceTypes.OPTIMAL,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
+      },
+      {
+        option: "B",
+        optionText:
+          "Request the Customer Service Manager to share the details and ask for a three-day timeline due to workload.",
+        timeCost: 12,
+        trustShift: 1,
+        choise: ChoiceTypes.ACCEPTABLE,
+        scenarioEndPopup:
+          "Devoting extra time to mastering Insights can boost your productivity, ultimately strengthening client trust.",
       },
     ],
   },

@@ -160,7 +160,9 @@ const Login = () => {
                 Start
               </Button>
             </Stack>
-          </Stack>:<Stack color={"#fff"} padding={"16px"} marginBottom={"32px"} marginTop={"-20px"}>
+          </Stack>
+          :
+          <Stack color={"#fff"} padding={"16px"} marginBottom={"32px"} marginTop={"-20px"}>
             <Stack direction={"row-reverse"}>
               <IconButton onClick={() => setTncModalOpen(false)}>
                 <Close sx={{ color: "#fff" }} />

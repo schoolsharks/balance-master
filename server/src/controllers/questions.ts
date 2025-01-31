@@ -24,6 +24,7 @@ export const handleFetchNextQuestion = async (
   }
 
   let question;
+  let nextPopup;
 
   if (user.responses.length === 0 && (!quesId || !option)) {
     // If it is the first question
@@ -32,16 +33,24 @@ export const handleFetchNextQuestion = async (
     let lastQuestionId = quesId;
     let lastResponse = option;
 
+
     if (!quesId || !option) {
       // If user has not send the question id or option, fetch the last response from his responses
       lastQuestionId = user.responses[user.responses?.length - 1]?.quesId;
       lastResponse = user.responses[user.responses?.length - 1]?.option;
     } else {
       // If he is sending question id and response of a question...
+      if(questions.find((ques)=>ques.id===quesId)?.options.find((opt)=>opt.option===option)?.scenarioEndPopup){
+        nextPopup={
+          scenario:quesId.split("")[0],
+          text:questions.find((ques)=>ques.id===quesId)?.options.find((opt)=>opt.option===option)?.scenarioEndPopup
+        }
+      }
 
       const existingResponseIndex = user.responses.findIndex(
         (response) => response.quesId === quesId
       );
+      
 
       if (existingResponseIndex !== -1) {
         // If already responded just update the selected choise and accordingly scores
@@ -128,6 +137,7 @@ export const handleFetchNextQuestion = async (
         gameStatus: user.quickOmniaResponses.length === quickOmniaQuestions.length ? "COMPLETED":"QUICK_OMNIA",
         trustScore: user.trustScore,
         timeInHand: user.timeInHand <0 ? 0 : user.timeInHand,
+        nextPopup
       })
     }
 
@@ -151,6 +161,7 @@ export const handleFetchNextQuestion = async (
         gameStatus: user.quickOmniaResponses.length === quickOmniaQuestions.length ? "COMPLETED":"QUICK_OMNIA",
         trustScore: user.trustScore,
         timeInHand: user.timeInHand,
+        nextPopup
       },
     });
   }
@@ -173,6 +184,7 @@ export const handleFetchNextQuestion = async (
       gameStatus: "RUNNING",
       trustScore: user.trustScore,
       timeInHand: user.timeInHand,
+      nextPopup
     },
   });
 };
@@ -279,9 +291,10 @@ export const handleGameCompleted = async (
     overallColleaguesTime:
       session.overallStats.colleaguesTime / session.players,
 
-    optimalChoices: user?.choicesDistribution.optimal / TOTAL_QUESTIONS,
+    optimalChoices: user?.choicesDistribution.optimal *100/ TOTAL_QUESTIONS,
+
     overallOptimalChoices:
-      session.overallStats.optimalChoices / (session.players * TOTAL_QUESTIONS),
+      session.choicesDistribution.optimal * 100/ (session.players * TOTAL_QUESTIONS),
 
     choicesDistribution: [
       {

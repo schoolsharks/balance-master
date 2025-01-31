@@ -7,7 +7,6 @@ export interface ISession extends Document {
     trustScore: number;
     timeInHand: number;
     colleaguesTime: number;
-    optimalChoices: number;
   };
   choicesDistribution: {
     optimal: number;
@@ -32,10 +31,6 @@ const SessionSchema: Schema = new Schema(
         default: 0,
       },
       colleaguesTime: {
-        type: Number,
-        default: 0,
-      },
-      optimalChoices: {
         type: Number,
         default: 0,
       },

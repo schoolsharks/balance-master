@@ -28,6 +28,7 @@ const userSlice = createSlice({
       state.loading=action.payload.loading??state.loading;
       state.trustScore=action.payload.trustScore??state.trustScore;
       state.timeInHand=action.payload.timeInHand??state.timeInHand;
+      state.status=action.payload.status??state.status
     },
     setError:(state,action)=>{
       state.error=action.payload
@@ -74,7 +75,7 @@ const userSlice = createSlice({
           state.loading=false,
           state.error=null,
           state.name = action.payload.name ?? state.name;
-          state.status="LOGGED_IN"
+          state.status="IDLE"
         }
       )
       .addCase(reset.rejected, (state, action) => {

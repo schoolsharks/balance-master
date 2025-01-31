@@ -69,52 +69,60 @@ const handleFetchUser = async (
 
 
 
-const handleReset=async(req:Request,res:Response,next:NextFunction)=>{
-
-  const userId=req.user
-
-  const user=await UserModel.findById(userId)
-
-  if(!user){
-    return next(new AppError("User Not found",400))
-  }
-
-  const activeSession = await ActiveSessionModel.findOne();
-
-  if (!activeSession) {
-    return next(new AppError("Active Session Module not found", 500));
-  }
-
-  if (!activeSession.isActive) {
-    return next(new AppError("No session is active", 400));
-  }
-
-
-
-  await SessionModel.findByIdAndUpdate(
-    activeSession.activeSession,
-    { $inc: { players: 1 , "overallStats.trustScore":BASE_TRUST_SCORE,"overallStats.timeInHand":BASE_TIME} },
-    { new: true }
-  );
-
-
-
-  const newUser = await UserModel.create({
-    name:user.name,
-    email:user.email,
-    contact:user.contact,
-    employeeId:user.employeeId,
-    session: activeSession.activeSession,
-  });
-  const accessToken = generateAccessToken({ id: newUser._id.toString() });
-
-  res.cookie("accessToken", accessToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
-    maxAge: 24 * 60 * 60 * 1000,
-  });
-
+const handleReset = async (req: Request, res: Response) => {
+  res.clearCookie("accessToken");
   return res.status(200).json({ success: true });
-}
+};
+
+
+// const handleReset=async(req:Request,res:Response,next:NextFunction)=>{
+
+//   const userId=req.user
+
+//   const user=await UserModel.findById(userId)
+
+//   if(!user){
+//     return next(new AppError("User Not found",400))
+//   }
+
+//   const activeSession = await ActiveSessionModel.findOne();
+
+//   if (!activeSession) {
+//     return next(new AppError("Active Session Module not found", 500));
+//   }
+
+//   if (!activeSession.isActive) {
+//     return next(new AppError("No session is active", 400));
+//   }
+
+
+
+//   await SessionModel.findByIdAndUpdate(
+//     activeSession.activeSession,
+//     { $inc: { players: 1 , "overallStats.trustScore":BASE_TRUST_SCORE,"overallStats.timeInHand":BASE_TIME} },
+//     { new: true }
+//   );
+
+
+
+//   const newUser = await UserModel.create({
+//     name:user.name,
+//     email:user.email,
+//     contact:user.contact,
+//     employeeId:user.employeeId,
+//     session: activeSession.activeSession,
+//   });
+//   const accessToken = generateAccessToken({ id: newUser._id.toString() });
+
+//   res.cookie("accessToken", accessToken, {
+//     httpOnly: true,
+//     secure: process.env.NODE_ENV === "production",
+//     sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
+//     maxAge: 24 * 60 * 60 * 1000,
+//   });
+
+//   return res.status(200).json({ success: true });
+// }
+
+
 export { handleCreateUser, handleFetchUser ,handleReset};

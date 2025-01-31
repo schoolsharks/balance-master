@@ -3,13 +3,18 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
-  IconButton,
+  Button,
+  // IconButton,
   Stack,
   Typography,
   useTheme,
 } from "@mui/material";
 import { choisesTypes } from "../../../data/choiseTypes";
-import { Cached, ExpandMore, HomeOutlined } from "@mui/icons-material";
+import {
+  // Cached,
+  ExpandMore,
+  // HomeOutlined
+} from "@mui/icons-material";
 import useCompleted from "../../../hooks/useCompleted";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +31,8 @@ import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.pn
 import RiskyBadge from "../../../assets/badges/Risky_Badge.png";
 import { useNavigate } from "react-router-dom";
 import { reset } from "../../../store/user/userActions";
-import graph from "../../../assets/graph.png"
+// import { setUser } from "../../../store/user/userSlice";
+// import graph from "../../../assets/graph.png"
 
 const Completed = () => {
   const theme = useTheme();
@@ -37,7 +43,7 @@ const Completed = () => {
 
   const { analytics, fetchCompletedStatus } = useCompleted();
   const [badge, setBadge] = useState<any>();
-  const [archeTypeDesc,setArcheTypeDesc]=useState<string>("")
+  const [archeTypeDesc, setArcheTypeDesc] = useState<string>("");
   useEffect(() => {
     fetchCompletedStatus();
   }, []);
@@ -57,15 +63,20 @@ const Completed = () => {
     const archeType = analytics?.archeType;
     if (archeType === "Strategic Advisor") {
       setBadge(StrategicAdvisorBadge);
-      setArcheTypeDesc("The GOAT of decision-making—smart, balanced, and always ahead of the game.")
+      setArcheTypeDesc(
+        "The GOAT of decision-making—smart, balanced, and always ahead of the game."
+      );
     } else if (archeType === "Solid Performer") {
       setBadge(SolidPerformerBadge);
-      setArcheTypeDesc("A steady player—makes mostly good choices but misses key opportunities to maximize trust and efficiency. Reliable, but not exceptional.")
-      
+      setArcheTypeDesc(
+        "A steady player—makes mostly good choices but misses key opportunities to maximize trust and efficiency. Reliable, but not exceptional."
+      );
     }
     if (archeType === "Risky") {
       setBadge(RiskyBadge);
-      setArcheTypeDesc("Inconsistent and slow—too many suboptimal decisions make Ms. Tan question their judgment. A risky bet for critical tasks.")
+      setArcheTypeDesc(
+        "Inconsistent and slow—too many suboptimal decisions make Ms. Tan question their judgment. A risky bet for critical tasks."
+      );
     }
   }, [analytics]);
 
@@ -73,7 +84,6 @@ const Completed = () => {
     dispatch(reset()).unwrap();
     navigate("/onboarding/1");
   };
-
 
   if (!analytics) {
     return;
@@ -133,11 +143,16 @@ const Completed = () => {
         {analytics.archeType}
       </Typography>
       <Typography marginTop={"20px"} fontSize={"18px"} fontWeight={"400"}>
-       {archeTypeDesc}
+        {archeTypeDesc}
       </Typography>
 
       {/* Radar Chart */}
-      <Typography fontWeight={"700"} fontSize={"24px"} marginTop={"48px"}>
+      <Typography
+        fontWeight={"700"}
+        fontSize={"24px"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
         Reflections
       </Typography>
       <Box
@@ -159,12 +174,14 @@ const Completed = () => {
               name="Choices"
               dataKey="self"
               stroke={theme.palette.primary.red}
+              strokeWidth={1.5}
               fill={theme.palette.primary.red}
               fillOpacity={0.6}
             />
             <Radar
               name="Choices"
               dataKey="group"
+              strokeWidth={1.5}
               stroke={"#ffffff"}
               fill={"#ffffff"}
               fillOpacity={0.6}
@@ -232,16 +249,25 @@ const Completed = () => {
       </Stack>
 
       {/* Trust score */}
+
+      <Typography
+        fontWeight={"700"}
+        fontSize={"24px"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Trust Score
+      </Typography>
       <Stack
         borderRadius={"10px"}
+        marginTop={"16px"}
         bgcolor={"#ffffff"}
-        marginTop={"48px"}
         padding={"20px"}
         color={"#000000"}
       >
         {/* Your Trust Score */}
         <Typography fontWeight={"700"} fontSize={"24px"}>
-          Your Trust Score
+          Your
         </Typography>
         <Stack
           direction="row"
@@ -294,7 +320,7 @@ const Completed = () => {
         {/* Group Trust Score */}
 
         <Typography fontWeight={"700"} fontSize={"24px"} marginTop={"24px"}>
-          Group Trust Score
+          Group
         </Typography>
         <Stack
           direction="row"
@@ -346,14 +372,19 @@ const Completed = () => {
 
         {/* Winning Probability */}
         <Typography fontSize={"18px"} fontWeight={"500"} marginTop={"24px"}>
-          Winning Probability Benchmark{" "}
+          Trust benchmark to be set as{" "}
           <span style={{ fontWeight: "700" }}>80%</span>
         </Typography>
       </Stack>
 
       {/* Optimal Choice Vs Time   */}
-      <Typography fontSize={"24px"} fontWeight={"700"} marginTop={"48px"}>
-        Optimal Choice VS Time
+      {/* <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Time Consumed
       </Typography>
       <Stack
         gap="4px"
@@ -373,7 +404,7 @@ const Completed = () => {
               Time Saved{" "}
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.timeInHand < 0 ? 0 : analytics.timeInHand}{" "}
+              {analytics.timeInHand < 0 ? 0 : analytics.timeInHand.toFixed()}{" "}
               <span style={{ fontWeight: "400", fontSize: "1rem" }}>hours</span>
             </Typography>
           </Stack>
@@ -390,10 +421,9 @@ const Completed = () => {
               (Group)
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              92
-              {/* {analytics.overallTimeInhand < 0
+              {analytics.overallTimeInhand < 0
                 ? 0
-                : analytics.overallTimeInhand}{" "} */}
+                : analytics.overallTimeInhand.toFixed()}{" "}
               <span style={{ fontWeight: "400", fontSize: "1rem" }}>hours</span>
             </Typography>
           </Stack>
@@ -442,11 +472,158 @@ const Completed = () => {
       </Typography>
       <Typography fontSize={"15px"} fontWeight={"300"}>
         (Calculations = Total time - Time saved by Optimal choices)
+      </Typography> */}
+
+
+
+
+      
+
+      {/* Optimal Choice Vs Time   */}
+      <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Time Consumed
       </Typography>
+      
+      <Stack
+        borderRadius={"10px"}
+        marginTop={"16px"}
+        bgcolor={theme.palette.primary.grey}
+        padding={"20px"}
+      >
+        {/* Your Trust Score */}
+        <Typography fontWeight={"700"} fontSize={"24px"}>
+         Time Vs Efforts
+        </Typography>
+        <Stack
+          direction="row"
+          height={"56px"}
+          gap={"4px"}
+          position={"relative"}
+          marginTop={"10px"}
+        >
+          <Box
+            flex={analytics.timeInHand}
+            bgcolor={theme.palette.primary.red}
+            borderRadius={"5px"}
+          />
+          <Box
+            flex={analytics.overallTimeInhand}
+            borderRadius={"5px"}
+            bgcolor={"#ffffff"}
+          />
+          <Typography
+            position={"absolute"}
+            fontSize={"20px"}
+            fontWeight={"700"}
+            left="8px"
+            top={"50%"}
+            color="#ffffff"
+            sx={{ transform: "translateY(-50%)" }}
+          >
+            {analytics.timeInHand.toFixed()} hours
+          </Typography>
+          <Typography
+            position={"absolute"}
+            fontSize={"20px"}
+            fontWeight={"700"}
+            right="8px"
+            top={"50%"}
+            color="#000"
+            sx={{ transform: "translateY(-50%)" }}
+          >
+            {analytics.overallTimeInhand.toFixed()} hours
+          </Typography>
+        </Stack>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          marginTop={"4px"}
+        >
+          <Typography fontSize={"14px"} fontWeight={"400"}>You</Typography>
+          <Typography fontSize={"14px"} fontWeight={"400"}>Group</Typography>
+        </Stack>
+
+        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>By selecting optimal choice  saved 260 mins.</Typography>
+        <Typography fontSize={"12px"} fontWeight={"300"}>(Calculations = Total time - Time spent by Optimal choices)</Typography>
+
+        {/* Group Trust Score */}
+
+        <Typography fontWeight={"700"} fontSize={"24px"} marginTop={"25px"}>
+        Time efforts by colleagues
+        </Typography>
+        <Stack
+          direction="row"
+          height={"56px"}
+          gap={"4px"}
+          position={"relative"}
+          marginTop={"10px"}
+        >
+          <Box
+            flex={analytics.colleaguesTime}
+            bgcolor={theme.palette.primary.red}
+            borderRadius={"5px"}
+          />
+          <Box
+            flex={analytics.overallColleaguesTime}
+            borderRadius={"5px"}
+            bgcolor={"#E5E6E7"}
+          />
+          <Typography
+            position={"absolute"}
+            fontSize={"20px"}
+            fontWeight={"700"}
+            left="8px"
+            top={"50%"}
+            color="#ffffff"
+            sx={{ transform: "translateY(-50%)" }}
+          >
+            {analytics.colleaguesTime.toFixed()} hours
+          </Typography>
+          <Typography
+            position={"absolute"}
+            fontSize={"20px"}
+            fontWeight={"700"}
+            right="8px"
+            top={"50%"}
+            color="#000"
+            sx={{ transform: "translateY(-50%)" }}
+          >
+            {(analytics.overallColleaguesTime).toFixed()} hours
+          </Typography>
+        </Stack>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          marginTop={"4px"}
+        >
+          <Typography fontSize={"14px"} fontWeight={"400"}>You</Typography>
+          <Typography fontSize={"14px"} fontWeight={"400"}>Group</Typography>
+        </Stack>
+
+
+        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>Time taken by service manager, product team or colleagues in performing the task instead of insights.</Typography>
+        <Typography fontSize={"12px"} fontWeight={"300"}>(Ideally {"<"} 180mins. The bigger the difference the better it is.)</Typography>
+
+
+      </Stack>
+
+
+
+
 
       {/* Omnia - The Choice */}
 
-      <Typography fontSize={"24px"} fontWeight={"700"} marginTop={"48px"}>
+      <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
         Placeholder
       </Typography>
       <Stack
@@ -467,7 +644,7 @@ const Completed = () => {
               Preferred Use Of Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.optimalChoices.toFixed()}%
+              {analytics.optimalChoices.toFixed(1)}%
             </Typography>
           </Stack>
           <Stack
@@ -508,7 +685,7 @@ const Completed = () => {
       </Stack>
 
       {/* Omnia Insight Effect */}
-      <Stack padding="16px" bgcolor={"#ffffff"} borderRadius={"10px"} marginTop={"48px"}>
+      {/* <Stack padding="16px" bgcolor={"#ffffff"} borderRadius={"10px"} marginTop={"48px"}>
         <Typography fontSize={"24px"} fontWeight={"700"} color="#000">
           Optimal Choices Effect
           <br />
@@ -519,7 +696,7 @@ const Completed = () => {
           <Typography color={theme.palette.primary.grey}>Placeholder</Typography>
         </Stack>
         <img src={graph} style={{width:"90%",margin:"auto"}}/>
-      </Stack>
+      </Stack> */}
 
       {/* Why Optimal - QNA Responses */}
 
@@ -544,13 +721,7 @@ const Completed = () => {
             </Typography>
             {ques.options.map((option, index) => (
               <>
-                <Typography
-                  color={theme.palette.primary.grey}
-                  fontWeight={"400"}
-                >
-                  {option.text}
-                </Typography>
-                <Stack direction={"row"} marginTop={"8px"} gap="4px">
+                <Stack direction={"row"} marginTop={"16px"} gap="4px">
                   <Box flex={"1"} height={"28px"}>
                     <Box
                       height={"100%"}
@@ -567,40 +738,43 @@ const Completed = () => {
                     {option.percentage}%
                   </Typography>
                 </Stack>
+                <Typography
+                  color={theme.palette.primary.grey}
+                  fontSize={"16px"}
+                  fontWeight={"500"}
+                >
+                  Option {String.fromCharCode(65 + index)}
+                </Typography>
+                <Typography
+                  color={theme.palette.primary.grey}
+                  fontWeight={"400"}
+                  fontSize={"14px"}
+                >
+                  {option.text}
+                </Typography>
               </>
             ))}
           </Stack>
         ))}
       </Stack>
 
-      {/* Home and Reset Buttons */}
-      <Stack
-        direction={"row"}
-        justifyContent={"space-around"}
-        marginTop={"48px"}
-      >
-        <IconButton onClick={() => navigate("/onboarding/1")}>
-          <HomeOutlined
-            sx={{
-              color: "#fff",
-              borderRadius: "50%",
-              border: "1px solid white",
-              padding: "6px",
-              fontSize: "45px",
-            }}
-          />
-        </IconButton>
-        <IconButton onClick={handleReset}>
-          <Cached
-            sx={{
-              color: "#fff",
-              borderRadius: "50%",
-              border: "1px solid white",
-              padding: "6px",
-              fontSize: "45px",
-            }}
-          />
-        </IconButton>
+      {/* Restart Buttons */}
+      <Stack direction={"row"} marginTop={"48px"} padding="4px">
+        <Button
+          variant="outlined"
+          onClick={handleReset}
+          sx={{
+            width: "max-content",
+            textTransform: "none",
+            borderRadius: "48px",
+            fontSize: "20px",
+            padding: "0 28px",
+            height: "40px",
+            border: "2px solid #fff",
+          }}
+        >
+          Restart
+        </Button>
       </Stack>
     </Stack>
   );

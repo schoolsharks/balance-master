@@ -1,4 +1,4 @@
-import {  IconButton, Stack, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
@@ -81,8 +81,8 @@ const Page1 = () => {
         The Balance Master Challenge!🎯
       </Typography>
       <Typography fontWeight={"400"} marginTop={"16px"}>
-        Your client, “The Company,” is a US-based multinational with operations
-        across Europe and Asia Pacific. <br />
+        Your client, <b>“The Company”</b>, is a US-based multinational with
+        operations across Europe and Asia Pacific. <br />
         Recently, they underwent an organizational restructure, appointing a new
         Treasurer, Ms. Tan, who is eager to streamline their banking
         relationships and processes.
@@ -90,7 +90,7 @@ const Page1 = () => {
       <Typography
         marginTop={"24px"}
         fontSize={"25px"}
-        fontWeight={"600"}
+        fontWeight={"700"}
         sx={{ color: theme.palette.primary.red }}
       >
         Outsmart, <br />
@@ -102,7 +102,7 @@ const Page1 = () => {
 };
 
 const Page2 = () => {
-  const theme=useTheme()
+  const theme = useTheme();
   const points = [
     "<p>You start with 50% trust and 100 game hours—your goal? Earn Ms. Tan’s full confidence (100% trust) before time runs out!</p>",
     "<p>At every step, choose between three options<b>—each impacts trust and time.</b>  Be smart, act fast, and maximize efficiency to stay ahead. Poor choices waste time and risk losing Ms. Tan’s trust.</p>",
@@ -112,17 +112,40 @@ const Page2 = () => {
   return (
     <Stack color="#fff" padding="24px">
       {" "}
-      <Typography fontSize="30px" fontWeight={"700"} marginTop={"8px"} marginBottom={"10px"}>
+      <Typography
+        fontSize="30px"
+        fontWeight={"700"}
+        marginTop={"8px"}
+        marginBottom={"10px"}
+      >
         Your Mission?{" "}
       </Typography>
-      <ul>
+      <Stack>
         {points.map((point, index) => (
-          <Typography key={index} margin={"10px 16px"} component={"li"} dangerouslySetInnerHTML={{__html:point}}>
-            {/* {point} */}
-          </Typography>
+          <Stack direction={"row"} margin={"10px 0"} gap="6px">
+            <Box
+              width={"12px"}
+              height={"12px"}
+              borderRadius={"50%"}
+              marginTop={"6px"}
+              sx={{
+                background: "linear-gradient(90deg,#ffffff,#000000)",
+                aspectRatio: "1/1",
+              }}
+            />
+            <Typography key={index} dangerouslySetInnerHTML={{ __html: point }}>
+              {/* {point} */}
+            </Typography>
+          </Stack>
         ))}
-      </ul>
-      <Typography fontWeight={"700"} marginTop={"10px"} color={theme.palette.primary.red}>Time is ticking—can you gain Ms. Tan’s full confidence? ⏳🔥</Typography>
+      </Stack>
+      <Typography
+        fontWeight={"700"}
+        marginTop={"10px"}
+        color={theme.palette.primary.red}
+      >
+        Time is ticking—can you gain Ms. Tan’s full confidence? ⏳🔥
+      </Typography>
     </Stack>
   );
 };
