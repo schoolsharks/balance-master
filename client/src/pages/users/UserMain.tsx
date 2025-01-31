@@ -4,7 +4,7 @@ import { Stack } from "@mui/system";
 import OnBoardingMain from "./Onboarding/OnBoardingMain";
 import Questions from "./Question/Questions";
 import Completed from "./Completed/Completed";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { fetchUser } from "../../store/user/userActions";
@@ -17,17 +17,23 @@ const UserMain = () => {
   const dispatch=useDispatch<AppDispatch>()
   const {status,loading}=useSelector((state:RootState)=>state.user)
   const location = useLocation();
+  const [windowHeight,setWindowHeight]=useState(window.innerHeight)
 
   useEffect(()=>{
     dispatch(fetchUser())
   },[])
+
+  useEffect(()=>{
+    setWindowHeight(window.innerHeight)
+  },[window.innerHeight])
+
 
   if(loading){
     return <CircularProgress/>
   }
 
   return (
-    <Stack sx={{ minHeight: window.innerHeight, height: "100%" }}>
+    <Stack sx={{ minHeight: windowHeight, height: "100%" }}>
       <AnimatePresence>
 
       <Routes  location={location}>

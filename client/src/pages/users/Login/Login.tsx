@@ -48,7 +48,7 @@ const Login = () => {
   }
 
   return (
-    <Stack flex={"1"}>
+    <Stack flex={"1"} height={window.innerHeight}>
       {/* {!tncModalOpen ? ( */}
         <UpperTriangleBox 
         sx={{ height: "100%", flex: !tncModalOpen?"1":"auto",borderRadius:!tncModalOpen?"0":"20px" , margin: !tncModalOpen?"0":"72px 20px ",transition:"all 0.3s ease"}}
@@ -133,7 +133,7 @@ const Login = () => {
               alignItems={"center"}
               gap={"16px"}
             >
-              <IconButton onClick={() => navigate("/onboarding/2")} sx={{ padding: "0" }}>
+              <IconButton onClick={() => navigate("/onboarding/1")} sx={{ padding: "0" }}>
                 <ArrowBack
                   sx={{
                     border: "2px solid white",
