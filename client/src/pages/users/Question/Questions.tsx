@@ -62,6 +62,10 @@ const Questions = () => {
                 padding={"16px"}
                 marginBottom={"32px"}
                 marginTop={"-20px"}
+                sx={{
+                  opacity:scenarioEndPopup?1:0,
+                  transition:"opacity 0.3s ease 0.3s"
+                }}
               >
                 <Typography
                   fontSize={"25px"}
@@ -106,7 +110,11 @@ const Questions = () => {
               bgcolor={"#000000"}
               padding="28px 24px"
               color={"#fff"}
-              sx={{ minHeight: window.innerHeight }}
+              sx={{
+                minHeight: window.innerHeight ,
+                opacity:!scenarioEndPopup?1:0,
+                transition:"opacity 0.3s ease 0.3s"
+              }}
             >
               {/* Trust Percentage and Time */}
               <Stack
