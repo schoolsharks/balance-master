@@ -418,21 +418,21 @@ export const quickOmniaQuestions = [
   {
     quesId: "1",
     question:
-      "You’ve just been assigned to The Company, and on your second day...",
+      "Why is Insights not your first choice?",
     options: [
       {
         option: "A",
-        optionText: "Email Ms. Tan with a firm note: “Why wasn’t I informed?”",
+        optionText: "Tried it, but not a fan of the navigation.",
       },
       {
         option: "B",
         optionText:
-          "Speak with international manager, identify possible large payments, compile thoughtful questions.",
+          "Prefer the old-school network of friends and colleagues.",
       },
       {
         option: "C",
         optionText:
-          "Wait until end of day to see if balances rebound or for Ms Tan to inform. ",
+          "Not familiar with the tool.",
       },
     ],
   },
