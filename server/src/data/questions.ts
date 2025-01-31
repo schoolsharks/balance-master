@@ -180,7 +180,7 @@ export const questions = [
         option: "A",
         optionText: "Check the Sales Manager's Inbox or ask the line manager",
         timeCost: 6,
-        trustShift: -1,
+        trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:null,
       },
