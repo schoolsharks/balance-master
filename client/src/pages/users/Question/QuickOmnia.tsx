@@ -38,7 +38,7 @@ const QuickOmnia = () => {
           <Typography fontSize={"24px"} fontWeight={"700"}>
             Placeholder
           </Typography>
-          <Typography fontSize={"16px"} fontWeight={"700"} marginTop={"32px"}>
+          <Typography fontSize={"18px"} fontWeight={"700"} marginTop={"32px"}>
             {currentQuestion?.question}
           </Typography>
 
