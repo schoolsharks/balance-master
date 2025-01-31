@@ -280,11 +280,13 @@ const Completed = () => {
             flex={analytics.trustScore}
             bgcolor={theme.palette.primary.red}
             borderRadius={"5px"}
-          />
+            minWidth={"56px"}
+            />
           <Box
             flex={100 - analytics.trustScore}
             borderRadius={"5px"}
             bgcolor={"#E5E6E7"}
+            minWidth={"56px"}
           />
           <Typography
             position={"absolute"}
@@ -333,11 +335,13 @@ const Completed = () => {
             flex={analytics.overallTrustScore}
             bgcolor={"#000000"}
             borderRadius={"5px"}
+            minWidth={"56px"}
           />
           <Box
             flex={analytics.overallTrustScore}
             borderRadius={"5px"}
             bgcolor={"#E5E6E7"}
+            minWidth={"56px"}
           />
           <Typography
             position={"absolute"}
@@ -510,11 +514,13 @@ const Completed = () => {
             flex={analytics.timeInHand}
             bgcolor={theme.palette.primary.red}
             borderRadius={"5px"}
-          />
+            minWidth={"100px"}
+            />
           <Box
             flex={analytics.overallTimeInhand}
             borderRadius={"5px"}
             bgcolor={"#ffffff"}
+            minWidth={"100px"}
           />
           <Typography
             position={"absolute"}
@@ -567,11 +573,13 @@ const Completed = () => {
             flex={analytics.colleaguesTime}
             bgcolor={theme.palette.primary.red}
             borderRadius={"5px"}
+            minWidth={"100px"}
           />
           <Box
             flex={analytics.overallColleaguesTime}
             borderRadius={"5px"}
             bgcolor={"#E5E6E7"}
+            minWidth={"100px"}
           />
           <Typography
             position={"absolute"}
