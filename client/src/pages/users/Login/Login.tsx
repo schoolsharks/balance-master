@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import {  useState } from "react";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import "./Login.css";
 import { ArrowBack, Close } from "@mui/icons-material";
@@ -46,6 +46,10 @@ const Login = () => {
       dispatch(createUser(formValues))
     }
   }
+
+  // useEffect(()=>{
+  //   window.location.reload()
+  // },[])
 
   return (
     <Stack flex={"1"} height={window.innerHeight}>

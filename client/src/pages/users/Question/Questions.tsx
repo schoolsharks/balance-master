@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import useQuestions from "../../../hooks/useQuestions";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import bulbIcon from "../../../assets/bulb-icon.png"
+import bulbIcon from "../../../assets/doc-icon.png"
 // import UpperTriangleBox from "../../../components/UpperTriangleBox";
 
 const Questions = () => {

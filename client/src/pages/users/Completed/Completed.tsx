@@ -406,7 +406,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.grey}
             flex={"1"}
           >
-            <Typography fontSize={"16px"} fontWeight={"500"}>
+            <Typography fontSize={"18px"} fontWeight={"500"}>
             Time consumed by you
             </Typography>
             <Typography fontSize={"25px"} fontWeight={"700"}>
@@ -422,7 +422,7 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time consumed by you
+            Time consumed by group
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.overallTimeInhand.toFixed()} <span style={{fontSize:"15px"}}> hours</span>
@@ -437,7 +437,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.red}
             flex={"1"}
           >
-            <Typography fontSize={"16px"} fontWeight={"500"}>
+            <Typography fontSize={"18px"} fontWeight={"500"}>
             Time with optimal choices
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
@@ -473,7 +473,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.grey}
             flex={"1"}
           >
-            <Typography fontSize={"16px"} fontWeight={"500"}>
+            <Typography fontSize={"18px"} fontWeight={"500"}>
             Time pushed to colleagues
             </Typography>
             <Typography fontSize={"25px"} fontWeight={"700"}>
@@ -504,7 +504,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.red}
             flex={"1"}
           >
-            <Typography fontSize={"16px"} fontWeight={"500"}>
+            <Typography fontSize={"18px"} fontWeight={"500"}>
             Time delegated to others instead of optimal choices
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>

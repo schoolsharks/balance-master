@@ -88,8 +88,8 @@ const Page1 = () => {
         The Balance Master Challenge!🎯
       </Typography>
       <Typography fontWeight={"400"} marginTop={"16px"}>
-        Your client, <b>“The Company”</b>, is a US-based multinational with
-        operations across Europe and Asia Pacific. <br />
+        Your client, <b>“The Company”</b>, is a US - based  multinational with
+        operations across  Europe and Asia Pacific. <br />
         Recently, they underwent an organizational restructure, appointing a new
         Treasurer, Ms. Tan, who is eager to streamline their banking
         relationships and processes.
@@ -142,8 +142,7 @@ const Page2 = () => {
   ];
 
   return (
-    <Stack color="#fff" padding="24px">
-      {" "}
+    <Stack color="#fff" padding="22px">
       <Typography
         fontSize="30px"
         fontWeight={"700"}
