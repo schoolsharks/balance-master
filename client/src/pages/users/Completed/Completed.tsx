@@ -104,7 +104,7 @@ const Completed = () => {
         >
           <Typography fontWeight={"400"}>Game Completion</Typography>
           <Typography fontWeight={"800"} fontSize={"24px"} marginTop={"8px"}>
-            {analytics.gameCompletion.toFixed(2)}%
+            {analytics.gameCompletion.toFixed()}%
           </Typography>
         </Box>
         <Box
@@ -123,7 +123,7 @@ const Completed = () => {
       </Stack>
 
       {/* Hi, User */}
-      <Typography fontSize={"24px"} fontWeight={"700"} marginTop={"48px"}>
+      <Typography fontSize={"24px"} textAlign={"center"} fontWeight={"700"} marginTop={"48px"}>
         Hi {name},
       </Typography>
 
@@ -381,6 +381,140 @@ const Completed = () => {
         </Typography>
       </Stack>
 
+
+
+
+      <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Time vs Efforts
+      </Typography>
+      <Stack
+        gap="4px"
+        borderRadius={"10px"}
+        overflow={"hidden"}
+        marginTop={"16px"}
+      >
+        <Stack direction={"row"} gap={"4px"}>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={theme.palette.primary.grey}
+            flex={"1"}
+          >
+            <Typography fontSize={"16px"} fontWeight={"500"}>
+            Time consumed by you
+            </Typography>
+            <Typography fontSize={"25px"} fontWeight={"700"}>
+              {analytics.timeInHand.toFixed()} <span style={{fontSize:"15px"}}>hours</span>
+            </Typography>
+          </Stack>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={"#ffffff"}
+            color={"#000000"}
+            flex={"1"}
+          >
+            <Typography fontSize={"18px"} fontWeight={"500"}>
+            Time consumed by you
+            </Typography>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
+              {analytics.overallTimeInhand.toFixed()} <span style={{fontSize:"15px"}}> hours</span>
+            </Typography>
+          </Stack>
+        </Stack>
+        <Stack direction={"row"}>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={theme.palette.primary.red}
+            flex={"1"}
+          >
+            <Typography fontSize={"16px"} fontWeight={"500"}>
+            Time with optimal choices
+            </Typography>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
+              22.6{" "}
+              <span style={{fontSize:"15px"}}> hours</span>
+            </Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+
+
+
+      
+      <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Extra Time
+      </Typography>
+      <Stack
+        gap="4px"
+        borderRadius={"10px"}
+        overflow={"hidden"}
+        marginTop={"16px"}
+      >
+        <Stack direction={"row"} gap={"4px"}>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={theme.palette.primary.grey}
+            flex={"1"}
+          >
+            <Typography fontSize={"16px"} fontWeight={"500"}>
+            Time pushed to colleagues
+            </Typography>
+            <Typography fontSize={"25px"} fontWeight={"700"}>
+              {analytics.colleaguesTime.toFixed()} <span style={{fontSize:"15px"}}>hours</span>
+            </Typography>
+          </Stack>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={"#ffffff"}
+            color={"#000000"}
+            flex={"1"}
+          >
+            <Typography fontSize={"18px"} fontWeight={"500"}>
+            Time pushed by group to colleagues
+            </Typography>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
+              {analytics.overallColleaguesTime.toFixed()} <span style={{fontSize:"15px"}}> hours</span>
+            </Typography>
+          </Stack>
+        </Stack>
+        <Stack direction={"row"}>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={theme.palette.primary.red}
+            flex={"1"}
+          >
+            <Typography fontSize={"16px"} fontWeight={"500"}>
+            Time delegated to others instead of optimal choices
+            </Typography>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
+              121{" "}
+              <span style={{fontSize:"15px"}}> hours</span>
+            </Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+
       {/* Optimal Choice Vs Time   */}
       {/* <Typography
         fontSize={"24px"}
@@ -483,156 +617,28 @@ const Completed = () => {
 
       
 
-      {/* Optimal Choice Vs Time   */}
-      <Typography
-        fontSize={"24px"}
-        fontWeight={"700"}
-        marginTop={"48px"}
-        textAlign={"center"}
-      >
-        Time Consumed
-      </Typography>
-      
-      <Stack
-        borderRadius={"10px"}
-        marginTop={"16px"}
-        bgcolor={theme.palette.primary.grey}
-        padding={"20px"}
-      >
-        {/* Your Trust Score */}
-        <Typography fontWeight={"700"} fontSize={"24px"}>
-         Time Vs Efforts
-        </Typography>
-        <Stack
-          direction="row"
-          height={"56px"}
-          gap={"4px"}
-          position={"relative"}
-          marginTop={"10px"}
-        >
-          <Box
-            flex={analytics.timeInHand}
-            bgcolor={theme.palette.primary.red}
-            borderRadius={"5px"}
-            minWidth={"100px"}
-            />
-          <Box
-            flex={analytics.overallTimeInhand}
-            borderRadius={"5px"}
-            bgcolor={"#ffffff"}
-            minWidth={"100px"}
-          />
-          <Typography
-            position={"absolute"}
-            fontSize={"20px"}
-            fontWeight={"700"}
-            left="8px"
-            top={"50%"}
-            color="#ffffff"
-            sx={{ transform: "translateY(-50%)" }}
-          >
-            {analytics.timeInHand.toFixed()} hours
-          </Typography>
-          <Typography
-            position={"absolute"}
-            fontSize={"20px"}
-            fontWeight={"700"}
-            right="8px"
-            top={"50%"}
-            color="#000"
-            sx={{ transform: "translateY(-50%)" }}
-          >
-            {analytics.overallTimeInhand.toFixed()} hours
-          </Typography>
-        </Stack>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          marginTop={"4px"}
-        >
-          <Typography fontSize={"14px"} fontWeight={"400"}>You</Typography>
-          <Typography fontSize={"14px"} fontWeight={"400"}>Group</Typography>
-        </Stack>
-
-        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>By selecting optimal choice  saved 177.6 hours.</Typography>
-        <Typography fontSize={"12px"} fontWeight={"300"}>(Calculations = Total time - Time spent by Optimal choices)</Typography>
-
-        {/* Group Trust Score */}
-
-        <Typography fontWeight={"700"} fontSize={"24px"} marginTop={"25px"}>
-        Time efforts by colleagues
-        </Typography>
-        <Stack
-          direction="row"
-          height={"56px"}
-          gap={"4px"}
-          position={"relative"}
-          marginTop={"10px"}
-        >
-          <Box
-            flex={analytics.colleaguesTime}
-            bgcolor={theme.palette.primary.red}
-            borderRadius={"5px"}
-            minWidth={"100px"}
-          />
-          <Box
-            flex={analytics.overallColleaguesTime}
-            borderRadius={"5px"}
-            bgcolor={"#E5E6E7"}
-            minWidth={"100px"}
-          />
-          <Typography
-            position={"absolute"}
-            fontSize={"20px"}
-            fontWeight={"700"}
-            left="8px"
-            top={"50%"}
-            color="#ffffff"
-            sx={{ transform: "translateY(-50%)" }}
-          >
-            {analytics.colleaguesTime.toFixed()} hours
-          </Typography>
-          <Typography
-            position={"absolute"}
-            fontSize={"20px"}
-            fontWeight={"700"}
-            right="8px"
-            top={"50%"}
-            color="#000"
-            sx={{ transform: "translateY(-50%)" }}
-          >
-            {(analytics.overallColleaguesTime).toFixed()} hours
-          </Typography>
-        </Stack>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          marginTop={"4px"}
-        >
-          <Typography fontSize={"14px"} fontWeight={"400"}>You</Typography>
-          <Typography fontSize={"14px"} fontWeight={"400"}>Group</Typography>
-        </Stack>
-
-
-        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>Time taken by service manager, product team or colleagues in performing the task instead of insights.</Typography>
-        <Typography fontSize={"12px"} fontWeight={"300"}>(Ideally {"<"} 180mins. The bigger the difference the better it is.)</Typography>
-
-
-      </Stack>
-
+     
 
 
 
 
       {/* Omnia - The Choice */}
 
-      <Typography
+      {/* <Typography
         fontSize={"24px"}
         fontWeight={"700"}
         marginTop={"48px"}
         textAlign={"center"}
       >
         Placeholder
+      </Typography> */}
+      <Typography
+        fontSize={"24px"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+        textAlign={"center"}
+      >
+        Optimal Choices
       </Typography>
       <Stack
         gap="4px"
@@ -652,7 +658,7 @@ const Completed = () => {
               Preferred Use Of Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.optimalChoices.toFixed(1)}%
+              {analytics.optimalChoices.toFixed(0)}%
             </Typography>
           </Stack>
           <Stack
@@ -714,9 +720,9 @@ const Completed = () => {
         bgcolor="#ffffff"
         padding={"16px"}
       >
-        <Typography fontSize={"24px"} fontWeight={"700"} color="#000">
+        {/* <Typography fontSize={"24px"} fontWeight={"700"} color="#000">
           Placeholder
-        </Typography>
+        </Typography> */}
         {analytics.whyOmnia.map((ques, index) => (
           <Stack key={index}>
             <Typography
@@ -743,20 +749,20 @@ const Completed = () => {
                     fontSize={"20px"}
                     fontWeight={"700"}
                   >
-                    {option.percentage}%
+                    {option.percentage.toFixed()}%
                   </Typography>
                 </Stack>
-                <Typography
+                {/* <Typography
                   color={theme.palette.primary.grey}
                   fontSize={"16px"}
                   fontWeight={"500"}
                 >
                   Option {String.fromCharCode(65 + index)}
-                </Typography>
+                </Typography> */}
                 <Typography
                   color={theme.palette.primary.grey}
                   fontWeight={"400"}
-                  fontSize={"14px"}
+                  fontSize={"16px"}
                 >
                   {option.text}
                 </Typography>

@@ -17,7 +17,7 @@ const OnBoardingMain = () => {
   };
 
   const handleForward = () => {
-    if (currentPage < 2) {
+    if (currentPage < 1) {
       navigate(`/onboarding/${currentPage + 1}`);
     } else {
       navigate("/login");
@@ -26,7 +26,7 @@ const OnBoardingMain = () => {
 
   return (
     <UpperTriangleBox sx={{ flex: "1", position: "relative" }}>
-      <Stack marginTop="-24px" flex={"1"}>
+      <Stack marginTop="-48px" flex={"1"}>
         {currentPage === 1 && <Page1 />}
         {currentPage === 2 && <Page2 />}
         {/* {currentPage === 3 && <Page3 />} */}
@@ -35,7 +35,8 @@ const OnBoardingMain = () => {
           direction={"row"}
           gap={"20px"}
           padding={"16px"}
-          margin={"auto 0 16px"}
+          // margin={"auto 0 16px"}
+          marginBottom={"16px"}
         >
           {currentPage > 1 && (
             <IconButton onClick={handleBack}>
@@ -71,7 +72,13 @@ const OnBoardingMain = () => {
 export default OnBoardingMain;
 
 const Page1 = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
+  const points = [
+    "<p>You start with 50% trust and 100 game hours—your goal? Earn Ms. Tan’s full confidence (100% trust) before time runs out!</p>",
+    "<p>At every step, choose between three options<b>—each impacts trust and time.</b>  Be smart, act fast, and maximize efficiency to stay ahead. Poor choices waste time and risk losing Ms. Tan’s trust.</p>",
+    "<p><b>Simple rule:</b> Make the best decisions, build trust, and don’t run out of time!</p>",
+  ];
+
   return (
     <Stack color={"#ffffff"} padding={"24px"}>
       <Typography fontSize={"20px"} fontWeight={"400"}>
@@ -87,16 +94,41 @@ const Page1 = () => {
         Treasurer, Ms. Tan, who is eager to streamline their banking
         relationships and processes.
       </Typography>
+
       <Typography
-        marginTop={"24px"}
-        fontSize={"25px"}
+        fontSize="30px"
         fontWeight={"700"}
-        sx={{ color: theme.palette.primary.red }}
+        marginTop={"25px"}
+        marginBottom={"10px"}
       >
-        Outsmart, <br />
-        Outplay, <br />
-        Own the Deal!
+        Your Mission?{" "}
       </Typography>
+      <Stack>
+        {points.map((point, index) => (
+          <Stack direction={"row"} margin={"5px 0"} gap="6px">
+            <Box
+              width={"12px"}
+              height={"12px"}
+              borderRadius={"50%"}
+              marginTop={"6px"}
+              sx={{
+                background: "linear-gradient(90deg,#ffffff,#000000)",
+                aspectRatio: "1/1",
+              }}
+            />
+            <Typography key={index} dangerouslySetInnerHTML={{ __html: point }}>
+              {/* {point} */}
+            </Typography>
+          </Stack>
+        ))}
+      </Stack>
+      {/* <Typography
+        fontWeight={"700"}
+        marginTop={"10px"}
+        color={theme.palette.primary.red}
+      >
+        Time is ticking—can you gain Ms. Tan’s full confidence? ⏳🔥
+      </Typography> */}
     </Stack>
   );
 };

@@ -1,7 +1,7 @@
 export const choisesTypes=[
     {
         choise:"Optimal",
-        content:["Demonstrates a high level of strategic thinking, client-centric focus, and thorough application of treasury knowledge.","Suggests the RM is a consultative, proactive, and trustworthy advisor."]
+        content:["Demonstrates a high level of strategic thinking, client-centric focus, and thorough application of treasury knowledge.","Suggests the Sales manager is a consultative, proactive, and trustworthy advisor."]
     },
     {
         choise:"Acceptable",

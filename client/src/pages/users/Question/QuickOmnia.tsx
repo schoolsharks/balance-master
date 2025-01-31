@@ -34,10 +34,10 @@ const QuickOmnia = () => {
       }}
     >
       <UpperTriangleBox sx={{ margin: "48px 24px", borderRadius: "20px" }}>
-        <Stack color={"#fff"} marginTop={"-48px"} padding={"0 16px 48px"}>
-          <Typography fontSize={"24px"} fontWeight={"700"}>
+        <Stack color={"#fff"} marginTop={"-12px"} padding={"0 16px 48px"}>
+          {/* <Typography fontSize={"24px"} fontWeight={"700"}>
             Placeholder
-          </Typography>
+          </Typography> */}
           <Typography fontSize={"18px"} fontWeight={"700"} marginTop={"32px"}>
             {currentQuestion?.question}
           </Typography>
