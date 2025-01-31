@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import {  useState } from "react";
+import {   useState } from "react";
 import UpperTriangleBox from "../../../components/UpperTriangleBox";
 import "./Login.css";
 import { ArrowBack, Close } from "@mui/icons-material";
@@ -52,7 +52,7 @@ const Login = () => {
   // },[])
 
   return (
-    <Stack flex={"1"} height={window.innerHeight}>
+    <Stack minHeight={window.innerHeight}>
       {/* {!tncModalOpen ? ( */}
         <UpperTriangleBox 
         sx={{ height: "100%", flex: !tncModalOpen?"1":"auto",borderRadius:!tncModalOpen?"0":"20px" , margin: !tncModalOpen?"0":"72px 20px ",transition:"all 0.3s ease"}}

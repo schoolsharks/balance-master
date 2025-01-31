@@ -11,7 +11,7 @@ import { fetchUser } from "../../store/user/userActions";
 import { CircularProgress } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 import QuickOmnia from "./Question/QuickOmnia";
-import AnimatedPage from "../../utils/AnimatedPage";
+// import AnimatedPage from "../../utils/AnimatedPage";
 
 const UserMain = () => {
   const dispatch=useDispatch<AppDispatch>()
@@ -37,7 +37,7 @@ const UserMain = () => {
       <AnimatePresence>
 
       <Routes  location={location}>
-        <Route path="/login" element={status==="LOGGED_IN"? <Navigate to="/questions"/>:<AnimatedPage Component={Login}/> } />
+        <Route path="/login" element={status==="LOGGED_IN"? <Navigate to="/questions"/>:<Login/> } />
         <Route path="/onboarding/:page" element={<OnBoardingMain/>} />
         <Route path="/questions" element={status==="IDLE"? <Navigate to="/login"/>:<Questions/>} />
         <Route path="/completed" element={status==="IDLE"? <Navigate to="/login"/>:<Completed />} />
