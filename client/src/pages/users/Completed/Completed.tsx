@@ -548,7 +548,7 @@ const Completed = () => {
           <Typography fontSize={"14px"} fontWeight={"400"}>Group</Typography>
         </Stack>
 
-        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>By selecting optimal choice  saved 260 mins.</Typography>
+        <Typography fontSize="14px" fontWeight={"500"} marginTop={"10px"}>By selecting optimal choice  saved 177.6 hours.</Typography>
         <Typography fontSize={"12px"} fontWeight={"300"}>(Calculations = Total time - Time spent by Optimal choices)</Typography>
 
         {/* Group Trust Score */}
