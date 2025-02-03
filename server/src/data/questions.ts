@@ -69,12 +69,12 @@ export const questions = [
   {
     id: "1B",
     question:
-      "You used Insights for 6 markets. Ms Tan is thrilled, but she forgot to mentioned she also needed the Indian entity balances too.  You’re on the road and won’t be back until late evening (bearing in mind India is 12 hours ahead). What do you do?",
+      "You used Insights for 6 markets. Ms Tan is thrilled, but she forgot to mention she also needed the Indian entity balances too.  You’re on the road and won’t be back until late evening (bearing in mind India is 12 hours ahead). What do you do?",
     options: [
       {
         option: "A",
         optionText:
-          "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified. Response",
+          "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified response",
         timeCost: 0.1,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -100,7 +100,7 @@ export const questions = [
   {
     id: "2",
     question:
-      "While “The Company” is implementing a new TMS, they consider an acquisition funded by Japanes Yen. Ms Tan needs the Yen balance in their US-based Yen account.",
+      "While “The Company” is implementing a new TMS, they consider an acquisition funded by Japanese Yen. Ms Tan needs the Yen balance in their US-based Yen account.",
     options: [
       {
         option: "A",
@@ -158,7 +158,7 @@ export const questions = [
     options: [
       {
         option: "A",
-        optionText: "Rush Request to Client Service to lead the conversation.",
+        optionText: "Rush request to Client Service to lead the conversation.",
         timeCost: 6,
         trustShift: -1,
         choise: ChoiceTypes.ACCEPTABLE,
@@ -277,7 +277,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around Deposits or other ways to get a better yield on that cash",
+          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around deposits or other ways to get a better yield on that cash",
         timeCost: 6,
         trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
