@@ -365,7 +365,7 @@ export const questions = [
         option: "A",
         optionText:
           "You go to Insights and review all the price points, balances and volumes.  Then put an invite in for a meeting with Ms Tan",
-        timeCost: 8,
+        timeCost: 6,
         trustShift: 2,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
