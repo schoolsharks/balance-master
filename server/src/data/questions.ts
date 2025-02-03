@@ -45,7 +45,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "Send Ms. Tan what you have, clarifying European data is incomplete and remaining data arrives in 2 days.",
+          "Send Ms Tan what you have, clarifying European data is incomplete and the Australia data will arrive in 2 days.",
         timeCost: 48,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -56,7 +56,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          "Ask your Service Manager to find the missing data",
+          "Ask your Service Manager to find the missing data.",
         timeCost: 1,
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
@@ -74,7 +74,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified response",
+          "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified response.",
         timeCost: 0.1,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -104,7 +104,7 @@ export const questions = [
     options: [
       {
         option: "A",
-        optionText: "Log into Insights to retrieve the data and send to Ms Tan",
+        optionText: "Log into Insights to retrieve the data and send to Ms Tan.",
         timeCost: 0.1,
         trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
@@ -130,7 +130,7 @@ export const questions = [
     options: [
       {
         option: "A",
-        optionText: "Take Charge – use Insights to set up a daily report to send to Ms Tan",
+        optionText: "Take Charge – use Insights to set up a daily report to send to Ms Tan.",
         timeCost: 2,
         trustShift: 6,
         choise: ChoiceTypes.OPTIMAL,
@@ -141,12 +141,12 @@ export const questions = [
       {
         option: "B",
         optionText:
-          "Ask the Relationship Manager to help and provide Ms Tan with the data for the next 7 days",
+          "Ask the Relationship Manager to help and provide Ms Tan with the data for the next 7 days.",
         timeCost: 24,
         trustShift: 0,
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
-          "The Relationship Manager gets distracted and misses a couple of days, requiring Ms Tan to have to chase.  ",
+          "The Relationship Manager gets distracted and misses a couple of days, requiring Ms Tan to have to chase.",
         colleguesTime: true,
       },
     ],
@@ -169,7 +169,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          "Escalate to Liquidity Team for their support, You still be the face",
+          "Escalate to Liquidity Team for their support, You still be the face.",
         timeCost: 24,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -185,11 +185,11 @@ export const questions = [
   {
     id: "3",
     question:
-      "You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms Tan expects a swift solution.",
+      "The local RM passed on the work to the support team. Ms Tan grows uneasy. How do you fix it? You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms Tan expects a swift solution.",
     options: [
       {
         option: "A",
-        optionText: "Ask your line manager if they still have the pricing approvals from the previous sales manager",
+        optionText: "Ask your line manager if they still have the pricing approvals from the previous sales manager.",
         timeCost: 6,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -211,12 +211,12 @@ export const questions = [
   {
     id: "3A",
     question:
-      "You hear nothing back from you line manager (must be on the golf course again!). By 8 PM, you still lack wire pricing. Ms Tan’s patience is wearing thin. You must pick a fresh approach quickly.",
+      "You hear nothing back from your line manager (must be on the golf course again!). By 8 PM, you still lack wire pricing. Ms Tan’s patience is wearing thin. You must pick a fresh approach quickly.",
     options: [
       {
         option: "A",
         optionText:
-          "Seek help from Local Billing team and respond to Ms Tan",
+          "Seek help from Local Billing team and respond to Ms Tan.",
         timeCost: 6,
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
@@ -245,7 +245,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "Ask colleagues if they are using Insights and, if not, show them how you are using it",
+          "Ask colleagues if they are using Insights and, if not, show them how you are using it.",
         timeCost: 24,
         trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
@@ -256,7 +256,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          "Keep it to yourself",
+          "Keep it to yourself.",
         timeCost: 2,
         trustShift: -1,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -277,7 +277,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around deposits or other ways to get a better yield on that cash",
+          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around deposits or other ways to get a better yield on that cash.",
         timeCost: 6,
         trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
@@ -287,7 +287,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          `You email the billing team for a month's data on all of "The Company's" accounts.`,
+          `You email the billing team for a month's data on all of 'The Company's" accounts.`,
         timeCost: 0.1,
         trustShift: -2,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -304,7 +304,7 @@ export const questions = [
       {
         option: "A",
         optionText:
-          "Using accurate data, prepare a pitch to demonstrate how much more yield Ms Tan could be making on her funds",
+          "Using accurate data, prepare a pitch to demonstrate how much more yield Ms Tan could be making on her funds.",
         timeCost: 2,
         trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
@@ -320,7 +320,7 @@ export const questions = [
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
-          "Ms Tan likes the proactive thinking, but is a little underwhelmed by the pitch.  Could you have tailored to captures exactly how much she could have made if she optimized the yield?",
+          "Ms Tan likes the proactive thinking, but is a little underwhelmed by the pitch.  Could you have tailored to captures exactly how much she could have made if she optimized the yield? ",
         colleguesTime: false,
       },
     ],
@@ -328,12 +328,12 @@ export const questions = [
   {
     id: "4B",
     question:
-      "The billing team reply by saying they are incredibly busy at the moment and can this wait.  ",
+      "The billing team reply by saying they are incredibly busy at the moment and can this wait?",
     options: [
       {
         option: "A",
         optionText:
-          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around Deposits or other ways to get a better yield on that cash",
+          "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around Deposits or other ways to get a better yield on that cash.",
         timeCost: 8,
         trustShift: 6,
         choise: ChoiceTypes.OPTIMAL,
@@ -343,7 +343,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          "Decide its not worth the effort and get distracted by all the other things in your inbox",
+          "Decide its not worth the effort and get distracted by all the other things in your inbox.",
         timeCost: 12,
         trustShift: -3,
         choise: ChoiceTypes.SUB_OPTIMAL,
@@ -363,8 +363,7 @@ export const questions = [
     options: [
       {
         option: "A",
-        optionText:
-          "You go to Insights and review all the price points, balances and volumes.  Then put an invite in for a meeting with Ms Tan",
+        optionText:"You go to Insights and review all the price points, balances and volumes. Then put an invite in for a meeting with Ms Tan.",
         timeCost: 6,
         trustShift: 2,
         choise: ChoiceTypes.OPTIMAL,
@@ -374,7 +373,7 @@ export const questions = [
       {
         option: "B",
         optionText:
-          `You email the billing team for a list of prices, balances and volumes on all of "The Company's" accounts.`,
+          `You email the billing team for a list of prices, balances and volumes on all of 'The Company's" accounts.`,
         timeCost: 0.1,
         trustShift: 0,
         choise: ChoiceTypes.ACCEPTABLE,
@@ -396,18 +395,18 @@ export const questions = [
         trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
-          "Fair and balanced, Ms Tan accepts the new pricing without objection and is quietly impressed that you've spotted opportunties to make better use of suprlus cash.  ",
+          "Fair and balanced, Ms Tan accepts the new pricing without objection and is quietly impressed that you've spotted opportunties to make better use of suprlus cash.",
         colleguesTime: false,
       },
       {
         option: "B",
         optionText:
-          "You explain that pricing needs to change to reflect a shift to fee income for the bank.  ",
+          "You explain that pricing needs to change to reflect a shift to fee income for the bank.",
         timeCost: 18,
         trustShift: 1,
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup:
-          "You've done your homework on the numbers, so can defend your position when Ms Tan resists.  Could you have shown the value HSBC offers 'The Company' or even spotted opportuities to improve efficiency for Ms Tan to help with the messaging? ",
+          "You've done your homework on the numbers, so can defend your position when Ms Tan resists.  Could you have shown the value HSBC offers 'The Company' or even spotted opportuities to improve efficiency for Ms Tan to help with the messaging?",
         colleguesTime: false,
       },
     ],
@@ -430,8 +429,7 @@ export const questions = [
       },
       {
         option: "B",
-        optionText:
-          "You go back to your Line Manager saying the billing team can't support and you will have to delay until next month",
+        optionText:"You go back to your Line Manager saying the billing team can't support and you will have to delay until next month.",
         timeCost: 12,
         trustShift: -5,
         choise: ChoiceTypes.SUB_OPTIMAL,
