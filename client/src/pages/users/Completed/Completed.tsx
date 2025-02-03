@@ -1,7 +1,7 @@
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
+  // Accordion,
+  // AccordionDetails,
+  // AccordionSummary,
   Box,
   Button,
   // IconButton,
@@ -9,12 +9,12 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { choisesTypes } from "../../../data/choiseTypes";
-import {
-  // Cached,
-  ExpandMore,
-  // HomeOutlined
-} from "@mui/icons-material";
+// import { choisesTypes } from "../../../data/choiseTypes";
+// import {
+//   // Cached,
+//   ExpandMore,
+//   // HomeOutlined
+// } from "@mui/icons-material";
 import useCompleted from "../../../hooks/useCompleted";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +28,7 @@ import {
 } from "recharts";
 import StrategicAdvisorBadge from "../../../assets/badges/Strategic_Advisor_Badge.webp";
 import SolidPerformerBadge from "../../../assets/badges/Solid_Performer_Badge.webp";
-import RiskyBadge from "../../../assets/badges/Risky_Badge.webp";
+import TransactionalBadge from "../../../assets/badges/Transactional_Badge.webp";
 import { useNavigate } from "react-router-dom";
 import { reset } from "../../../store/user/userActions";
 // import { setUser } from "../../../store/user/userSlice";
@@ -48,11 +48,11 @@ const Completed = () => {
     fetchCompletedStatus();
   }, []);
 
-  const choisesColors = [
-    { bg: "#ffffff", color: "#000000" },
-    { bg: theme.palette.primary.grey, color: "#ffffff" },
-    { bg: theme.palette.primary.red, color: "#ffffff" },
-  ];
+  // const choisesColors = [
+  //   { bg: "#ffffff", color: "#000000" },
+  //   { bg: theme.palette.primary.grey, color: "#ffffff" },
+  //   { bg: theme.palette.primary.red, color: "#ffffff" },
+  // ];
   const whyOmniaColors = [
     theme.palette.primary.grey,
     "#E5E6E7",
@@ -64,18 +64,18 @@ const Completed = () => {
     if (archeType === "Strategic Advisor") {
       setBadge(StrategicAdvisorBadge);
       setArcheTypeDesc(
-        "The GOAT of decision-making—smart, balanced, and always ahead of the game."
+        "You are THE GOAT!  You’ve worked out how to use the tools available to be a legend!"
       );
     } else if (archeType === "Solid Performer") {
       setBadge(SolidPerformerBadge);
       setArcheTypeDesc(
-        "A steady player—makes mostly good choices but misses key opportunities to maximize trust and efficiency. Reliable, but not exceptional."
+        "You are NOT BAD, but could be getting more deals and spending less time chasing data if you used the tools available"
       );
     }
-    if (archeType === "Risky") {
-      setBadge(RiskyBadge);
+    if (archeType === "Transactional") {
+      setBadge(TransactionalBadge);
       setArcheTypeDesc(
-        "Inconsistent and slow—too many suboptimal decisions make Ms. Tan question their judgment. A risky bet for critical tasks."
+        "You are STRUGGLING… You must be spending lots of time chasing data and struggling to gain the trust of your clients – use the tools to help you."
       );
     }
   }, [analytics]);
@@ -123,7 +123,12 @@ const Completed = () => {
       </Stack>
 
       {/* Hi, User */}
-      <Typography fontSize={"24px"} textAlign={"center"} fontWeight={"700"} marginTop={"48px"}>
+      <Typography
+        fontSize={"24px"}
+        textAlign={"center"}
+        fontWeight={"700"}
+        marginTop={"48px"}
+      >
         Hi {name},
       </Typography>
 
@@ -215,7 +220,7 @@ const Completed = () => {
       </Box>
 
       {/* Choises Types Info */}
-      <Stack gap={"16px"}>
+      {/* <Stack gap={"16px"}>
         {choisesTypes.map((item, index) => (
           <Accordion
             sx={{
@@ -246,14 +251,14 @@ const Completed = () => {
             </AccordionDetails>
           </Accordion>
         ))}
-      </Stack>
+      </Stack> */}
 
       {/* Trust score */}
 
       <Typography
         fontWeight={"700"}
         fontSize={"24px"}
-        marginTop={"48px"}
+        marginTop={"12px"}
         textAlign={"center"}
       >
         Trust Score
@@ -281,7 +286,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.red}
             borderRadius={"5px"}
             minWidth={"56px"}
-            />
+          />
           <Box
             flex={100 - analytics.trustScore}
             borderRadius={"5px"}
@@ -381,8 +386,7 @@ const Completed = () => {
         </Typography>
       </Stack>
 
-
-
+      {/* Time vs Efforts */}
 
       <Typography
         fontSize={"24px"}
@@ -406,11 +410,12 @@ const Completed = () => {
             bgcolor={theme.palette.primary.grey}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time consumed by you
+            <Typography fontSize={"14px"} fontWeight={"700"}>
+              Time used by you
             </Typography>
             <Typography fontSize={"25px"} fontWeight={"700"}>
-              {analytics.timeInHand.toFixed()} <span style={{fontSize:"15px"}}>hours</span>
+              {analytics.timeInHand.toFixed()}{" "}
+              <span style={{ fontSize: "15px",fontWeight:"500" }}>hours</span>
             </Typography>
           </Stack>
           <Stack
@@ -421,15 +426,16 @@ const Completed = () => {
             color={"#000000"}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time consumed by group
+            <Typography fontSize={"14px"} fontWeight={"700"}>
+            Average time used by Group
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.overallTimeInhand.toFixed()} <span style={{fontSize:"15px"}}> hours</span>
+              {analytics.overallTimeInhand.toFixed()}{" "}
+              <span style={{ fontSize: "15px",fontWeight:"500" }}> hours</span>
             </Typography>
           </Stack>
         </Stack>
-        <Stack direction={"row"}>
+        <Stack direction={"row"} gap={"4px"}>
           <Stack
             justifyContent={"space-between"}
             minHeight={"140px"}
@@ -437,21 +443,35 @@ const Completed = () => {
             bgcolor={theme.palette.primary.red}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time with optimal choices
+            <Typography fontSize={"14px"} fontWeight={"700"}>
+            Effecting colleagues productivity (Time)
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              22.6{" "}
-              <span style={{fontSize:"15px"}}> hours</span>
+              {analytics.colleaguesTime.toFixed()}<span style={{ fontSize: "15px",fontWeight:"500" }}> hours</span>
+              {/* 22.6 <span style={{ fontSize: "15px" }}> hours</span> */}
+            </Typography>
+          </Stack>
+          <Stack
+            justifyContent={"space-between"}
+            minHeight={"140px"}
+            padding={"12px"}
+            bgcolor={"#ffffff"}
+            flex={"1"}
+            color={"#000000"}
+          >
+            <Typography fontSize={"14px"} fontWeight={"700"}>
+            Effecting colleagues productivity by Group
+            </Typography>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
+              {analytics.overallColleaguesTime.toFixed()} <span style={{ fontSize: "15px",fontWeight:"500" }}> hours</span>
             </Typography>
           </Stack>
         </Stack>
+        <Typography marginTop={"16px"} fontSize={"18px"} fontWeight={"500"}>You could have used as little as 22.6 hours and none of your colleagues time had you used Insights.<br/>
+        What could we do with all that time?</Typography>
       </Stack>
 
-
-
-      
-      <Typography
+      {/* <Typography
         fontSize={"24px"}
         fontWeight={"700"}
         marginTop={"48px"}
@@ -474,10 +494,11 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time pushed to colleagues
+              Time pushed to colleagues
             </Typography>
             <Typography fontSize={"25px"} fontWeight={"700"}>
-              {analytics.colleaguesTime.toFixed()} <span style={{fontSize:"15px"}}>hours</span>
+              {analytics.colleaguesTime.toFixed()}{" "}
+              <span style={{ fontSize: "15px" }}>hours</span>
             </Typography>
           </Stack>
           <Stack
@@ -489,10 +510,11 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time pushed by group to colleagues
+              Time pushed by group to colleagues
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              {analytics.overallColleaguesTime.toFixed()} <span style={{fontSize:"15px"}}> hours</span>
+              {analytics.overallColleaguesTime.toFixed()}{" "}
+              <span style={{ fontSize: "15px" }}> hours</span>
             </Typography>
           </Stack>
         </Stack>
@@ -505,15 +527,14 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"18px"} fontWeight={"500"}>
-            Time delegated to others instead of optimal choices
+              Time delegated to others instead of optimal choices
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              121{" "}
-              <span style={{fontSize:"15px"}}> hours</span>
+              121 <span style={{ fontSize: "15px" }}> hours</span>
             </Typography>
           </Stack>
         </Stack>
-      </Stack>
+      </Stack> */}
 
       {/* Optimal Choice Vs Time   */}
       {/* <Typography
@@ -612,16 +633,6 @@ const Completed = () => {
         (Calculations = Total time - Time saved by Optimal choices)
       </Typography> */}
 
-
-
-
-      
-
-     
-
-
-
-
       {/* Omnia - The Choice */}
 
       {/* <Typography
@@ -654,7 +665,7 @@ const Completed = () => {
             bgcolor={theme.palette.primary.grey}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
+            <Typography fontSize={"14px"} fontWeight={"700"}>
               Preferred Use Of Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
@@ -669,7 +680,7 @@ const Completed = () => {
             color={"#000000"}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
+            <Typography fontSize={"14px"} fontWeight={"700"}>
               Group Preferred Insights
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
@@ -685,11 +696,11 @@ const Completed = () => {
             bgcolor={theme.palette.primary.red}
             flex={"1"}
           >
-            <Typography fontSize={"18px"} fontWeight={"500"}>
+            <Typography fontSize={"14px"} fontWeight={"700"}>
               As on 31st of Jan
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
-              20%{" "}
+              8%{" "}
               <span style={{ fontWeight: "400", fontSize: "1rem" }}>
                 were active on Insights
               </span>

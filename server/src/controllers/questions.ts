@@ -221,7 +221,7 @@ export const handleGameCompleted = async (
   } else if (user.choicesDistribution.optimal / TOTAL_QUESTIONS >= 0.3) {
     archeType = "Solid Performer";
   } else if (user.choicesDistribution.optimal / TOTAL_QUESTIONS < 0.6) {
-    archeType = "Risky";
+    archeType = "Transactional";
   }
 
 
