@@ -4,6 +4,6 @@
     box-sizing: border-box;
 }
 body{
-    max-width: 480px;
+    /* max-width: 480px; */
     margin: auto;
 }

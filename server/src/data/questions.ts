@@ -30,7 +30,7 @@ export const questions = [
         optionText:
           "Go into <b>Insights</b> to quickly extract balances for the 6 markets.",
         timeCost: 0.5,
-        trustShift: 8,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
         colleguesTime: false,
@@ -47,7 +47,7 @@ export const questions = [
         optionText:
           "Send Ms Tan what you have, clarifying European data is incomplete and the Australia data will arrive in 2 days.",
         timeCost: 48,
-        trustShift: -6,
+        trustShift: -4,
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "You do provide immediate partial data, so Ms Tan is not angry, but she notices the gaps and starts to doubt your competence.",
@@ -76,7 +76,7 @@ export const questions = [
         optionText:
           "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified response.",
         timeCost: 0.17,
-        trustShift: -6,
+        trustShift: -4,
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
           "Leveraging your network can be an excellent approach, but it can delay things and takes up others’ time.  Also, how do you verify the accuracy of the data?  Ms Tan’s trust is at stake!",
@@ -86,7 +86,7 @@ export const questions = [
         option: "B",
         optionText:
           "You inform Ms Tan you’ll share data in 6 hours, sending a polite holding reply.  When back, dive into Insights and send the data.",
-        timeCost: 6,
+        timeCost: 4,
         trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
@@ -106,7 +106,7 @@ export const questions = [
         option: "A",
         optionText: "Log into Insights to retrieve the data and send to Ms Tan.",
         timeCost: 0.17,
-        trustShift: 5,
+        trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
         colleguesTime: false,
@@ -132,7 +132,7 @@ export const questions = [
         option: "A",
         optionText: "Take Charge – use Insights to set up a daily report to send to Ms Tan.",
         timeCost: 2,
-        trustShift: 6,
+        trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "You can use Insights for this data and win trust with Ms Tan by providing this data.  However, you could also show her how to self-serve this data using HSBCnet?",
@@ -201,7 +201,7 @@ export const questions = [
         optionText:
           "Use Insights - Pull the wire pricing for that entity from Insights.",
         timeCost: 1,
-        trustShift: 4,
+        trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
         colleguesTime: false,
@@ -246,8 +246,8 @@ export const questions = [
         option: "A",
         optionText:
           "Ask colleagues if they are using Insights and, if not, show them how you are using it.",
-        timeCost: 24,
-        trustShift: 5,
+        timeCost: 16,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Share the knowledge – help others to be as efficient as you.",
@@ -278,7 +278,7 @@ export const questions = [
         option: "A",
         optionText:
           "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around deposits or other ways to get a better yield on that cash.",
-        timeCost: 6,
+        timeCost: 2,
         trustShift: 3,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
@@ -305,8 +305,8 @@ export const questions = [
         option: "A",
         optionText:
           "Using accurate data, prepare a pitch to demonstrate how much more yield Ms Tan could be making on her funds.",
-        timeCost: 2,
-        trustShift: 8,
+        timeCost: 1,
+        trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "Ms Tan is seriously impressed!",
@@ -334,8 +334,8 @@ export const questions = [
         option: "A",
         optionText:
           "You dive into Insights and pull up balance data for the previous month.  You see over 15M SGD is consistently being held in one of the accounts and book a call with Ms Tan to share ideas around Deposits or other ways to get a better yield on that cash.",
-        timeCost: 8,
-        trustShift: 6,
+        timeCost: 2,
+        trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: "Getting there - still a good outcome is in stall, but why not use Insights from the beginning and save the Billing team's time?",
         colleguesTime: false,
@@ -364,7 +364,7 @@ export const questions = [
       {
         option: "A",
         optionText:"You go to Insights and review all the price points, balances and volumes. Then put an invite in for a meeting with Ms Tan.",
-        timeCost: 6,
+        timeCost: 2,
         trustShift: 2,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
@@ -420,8 +420,8 @@ export const questions = [
         option: "A",
         optionText:
           "You remember a colleague mentioning the system 'Insights' and decide to have a look in there.",
-        timeCost: 8,
-        trustShift: 6,
+        timeCost: 3,
+        trustShift: 4,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup:
           "You have realised the power of this tool!  All the pricing information is there, along with balances and volumes - everything you need to make a re-pricing deicsion and prepare for the call with Ms Tan.",

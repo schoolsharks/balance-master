@@ -33,7 +33,7 @@ const UserMain = () => {
   }
 
   return (
-    <Stack sx={{ minHeight: windowHeight, height: "100%" }}>
+    <Stack sx={{ minHeight: windowHeight, height: "100%",maxWidth:"480px"}}>
       <AnimatePresence>
 
       <Routes  location={location}>

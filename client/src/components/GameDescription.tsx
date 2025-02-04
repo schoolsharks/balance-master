@@ -1,6 +1,7 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 
 const GameDescription = () => {
+  const theme = useTheme();
   const points = [
     "<b>Earn Ms. Tan’s full confidence (100% trust) before time runs out!</b>",
     "You start with <b>50% trust</b> and <b>200 game hours.</b> At every step, choose between two options—<b>each impacts trust and time.</b>",
@@ -11,10 +12,27 @@ const GameDescription = () => {
       <Typography fontSize={"20px"} fontWeight={"400"}>
         Welcome to
       </Typography>
-      <Typography fontSize="30px" fontWeight={"700"} marginTop={"8px"}>
+      <Typography
+        fontSize="30px"
+        fontWeight={"700"}
+        marginTop={"8px"}
+        sx={{
+          [theme.breakpoints.up("md")]: {
+            fontSize: "35px",
+          },
+        }}
+      >
         The Balance Master Challenge!🎯
       </Typography>
-      <Typography fontWeight={"400"} marginTop={"16px"}>
+      <Typography
+        fontWeight={"400"}
+        marginTop={"16px"}
+        sx={{
+          [theme.breakpoints.up("md")]: {
+            fontSize: "20px",
+          },
+        }}
+      >
         Your client, <b>“The Company”,</b> is a US based multinational with
         operations across Europe and Asia Pacific.
         <br />
@@ -28,6 +46,11 @@ const GameDescription = () => {
         fontWeight={"700"}
         marginTop={"25px"}
         marginBottom={"10px"}
+        sx={{
+          [theme.breakpoints.up("md")]: {
+            fontSize: "35px",
+          },
+        }}
       >
         Your Mission?{" "}
       </Typography>
