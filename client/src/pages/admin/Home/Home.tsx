@@ -1,10 +1,16 @@
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import GameDescription from "../../../components/GameDescription";
 import QR_CODE from "../../../assets/qr-code/qr-code.webp"
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
   const theme = useTheme();
+  const navigate=useNavigate()
+  const {livePlayers,gameCompletion}=useSelector((state:RootState)=>state.admin)
+
   return (
     <Stack minHeight={window.innerHeight} bgcolor={"#000"} color={"#fff"} padding={"60px 120px"}>
         <Stack maxWidth={"1300px"} margin={"auto"}>
@@ -21,11 +27,11 @@ const Home = () => {
           >
             <Box padding={"12px"} bgcolor={theme.palette.primary.grey} flex={"1"}>
               <Typography fontSize={"1.25rem"} fontWeight={"400"}>Game Completion</Typography>
-              <Typography fontSize={"30px"} fontWeight={"800"}>100%</Typography>
+              <Typography fontSize={"30px"} fontWeight={"800"}>{gameCompletion.toFixed()}%</Typography>
             </Box>
             <Box padding={"12px"} bgcolor={"#fff"} color={"#000"} flex={"1"}>
               <Typography fontSize={"1.25rem"} fontWeight={"400"}>Live Players in Session</Typography>
-              <Typography fontSize={"30px"} fontWeight={"800"}>47</Typography>
+              <Typography fontSize={"30px"} fontWeight={"800"}>{livePlayers}</Typography>
             </Box>
           </Stack>
           <Stack flex={"1"}>
@@ -37,6 +43,7 @@ const Home = () => {
       <Stack direction={"row"} justifyContent={"space-between"} marginTop={"24px"}>
         <Button
           variant="outlined"
+          onClick={()=>navigate("/admin/session")}
           sx={{
             width: "max-content",
             textTransform: "none",
