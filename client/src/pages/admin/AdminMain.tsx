@@ -10,6 +10,7 @@ const AdminMain = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
+    dispatch(fetchCurrentSessionInfo())
     const fetchInterval = setInterval(() => {
       dispatch(fetchCurrentSessionInfo());
     }, 5000);

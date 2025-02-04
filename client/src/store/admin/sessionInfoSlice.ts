@@ -7,7 +7,7 @@ export interface SessionInfo {
   gameCompletion: number;
   livePlayers: number;
   sessionId: string | null;
-  trustScore: number;
+  trustScore: number | null;
   choicesDistribution: {
     optimal: number;
     suboptimal: number;
@@ -33,7 +33,7 @@ const initialState: SessionInfo = {
   gameCompletion: 0,
   livePlayers: 0,
   sessionId: null,
-  trustScore: 0,
+  trustScore: null,
   choicesDistribution: {
     optimal: 0,
     suboptimal: 0,
@@ -62,7 +62,7 @@ const sessionInfoSlice = createSlice({
           action: PayloadAction<{
             livePlayers: number;
             gameCompletion: number;
-            trustScore: number;
+            trustScore: number | null;
             timeUsed: number;
             colleguesTime: number;
             choicesDistribution: {

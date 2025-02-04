@@ -1,4 +1,4 @@
-import { Grid2, Stack } from "@mui/material";
+import { CircularProgress, Grid2, Stack } from "@mui/material";
 import Header from "./Header";
 import GroupTrust from "./GroupTrust";
 import ChoicesDistrubution from "./ChoicesDistrubution";
@@ -14,43 +14,35 @@ const SessionDashboardMain = () => {
   );
 
   const analysisCards = [
-    <GroupTrust trustScore={trustScore} />,
+    <GroupTrust trustScore={trustScore??0} />,
     <ChoicesDistrubution />,
     <TimeVsEfforts />,
     <FeedbackAnalysis />,
     ...scenariosAnalysis.map((item, index) => (
       <ScenarioAnalysis
-        scenarioNumber={index+1}
-        scenarioText={item.question ??""}
-        optimalPercent={item.optimal*100/(item.optimal+item.suboptimal+item.acceptable)}
+        scenarioNumber={index + 1}
+        scenarioText={item.question ?? ""}
+        optimalPercent={
+          (item.optimal * 100) /
+          (item.optimal + item.suboptimal + item.acceptable)
+        }
       />
     )),
-    // <ScenarioAnalysis
-    //   scenarioNumber={1}
-    //   scenarioText="It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners."
-    //   optimalPercent={25}
-    // />,
-    // <ScenarioAnalysis
-    //   scenarioNumber={2}
-    //   scenarioText="It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners."
-    //   optimalPercent={75}
-    // />,
-    // <ScenarioAnalysis
-    //   scenarioNumber={3}
-    //   scenarioText="It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners."
-    //   optimalPercent={10}
-    // />,
-    // <ScenarioAnalysis
-    //   scenarioNumber={4}
-    //   scenarioText="It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners."
-    //   optimalPercent={15}
-    // />,
-    // <ScenarioAnalysis
-    //   scenarioNumber={5}
-    //   scenarioText="It’s Thursday evening, and the Deputy Treasurer from “The Company” requests a list of accounts and balances in 6 key markets (3 in Europe: UK, Ireland, Netherlands, and 3 in Asia: Hong Kong, Singapore, Australia). They’re reviewing partners."
-    //   optimalPercent={25}
-    // />,
   ];
+
+  if (trustScore===null) {
+    return (
+      <Stack
+        minHeight={window.innerHeight}
+        bgcolor={"#000"}
+        alignItems={"center"}
+        justifyContent={"center"}
+      >
+        <CircularProgress />
+      </Stack>
+    );
+  }
+
   return (
     <Stack
       bgcolor={"#000"}
