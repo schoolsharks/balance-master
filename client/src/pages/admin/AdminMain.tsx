@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import SessionDashboardMain from "./SessionDashboard/SessionDashboardMain";
 import { useEffect } from "react";
@@ -23,6 +23,7 @@ const AdminMain = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/session" element={<SessionDashboardMain />} />
         <Route path="/session/:id" element={<SessionDashboardMain />} />
+        <Route path="/*" element={<Navigate to="/admin/home" />} />
       </Routes>
     </>
   );
