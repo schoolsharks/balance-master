@@ -144,25 +144,23 @@ export const fetchCurrentSessionInfo = async (
     }))
     .sort((a, b) => a.id - b.id);
 
+  let totalOptimal = 0;
+  let totalAcceptable = 0;
+  let totalSuboptimal = 0;
 
-  let totalOptimal=0;
-  let totalAcceptable=0;
-  let totalSuboptimal=0;
+  scenariosAnalysis.forEach((item) => {
+    totalOptimal += item.optimal;
+    totalAcceptable += item.acceptable;
+    totalSuboptimal += item.suboptimal;
+  });
 
-  scenariosAnalysis.forEach((item)=>{
-    totalOptimal+=item.optimal
-    totalAcceptable+=item.acceptable
-    totalSuboptimal+=item.suboptimal
-  })
+  const totalChoices = totalOptimal + totalAcceptable + totalSuboptimal;
 
-
-  const totalChoices=totalOptimal+totalAcceptable+totalSuboptimal
-
-  const choicesDistribution={
-    optimal:totalOptimal*100/totalChoices,
-    acceptable:totalAcceptable*100/totalChoices,
-    suboptimal:totalSuboptimal*100/totalChoices
-  }
+  const choicesDistribution = {
+    optimal: (totalOptimal * 100) / totalChoices,
+    acceptable: (totalAcceptable * 100) / totalChoices,
+    suboptimal: (totalSuboptimal * 100) / totalChoices,
+  };
 
   const gameCompletion =
     (Object.values(sessionInfo.choicesDistribution).reduce((a, b) => a + b) *
@@ -186,6 +184,40 @@ export const fetchCurrentSessionInfo = async (
     colleguesTime,
     feedbackAnalysis,
     scenariosAnalysis,
-    choicesDistribution
+    choicesDistribution,
   });
+};
+
+
+
+export const resetSession = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const activeSession = await ActiveSessionModel.findOne();
+
+  if (!activeSession) {
+    return next(new AppError("Active Session module not found", 404));
+  }
+  const newSession = await SessionModel.create({
+    players: 0,
+    overallStats: {
+      trustScore: 0,
+      timeInHand: 0,
+      colleaguesTime: 0,
+    },
+    choicesDistribution: {
+      optimal: 0,
+      subOptimal: 0,
+      acceptable: 0,
+    },
+  });
+
+  activeSession.isActive = true;
+  activeSession.activeSession=newSession._id
+
+  await activeSession.save()
+
+  return res.status(200).json({message:"Session Reset Successful"})
 };

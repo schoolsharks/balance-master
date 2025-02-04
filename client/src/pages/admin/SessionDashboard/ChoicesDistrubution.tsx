@@ -17,7 +17,7 @@ const ChoicesDistrubution = () => {
         Optimal Choice
       </Typography>
       <Typography fontSize={"45px"} fontWeight={"600"}>
-        {choicesDistribution.optimal.toFixed()}%{" "}
+        {choicesDistribution.optimal?.toFixed()}%{" "}
         <span style={{ fontSize: "15px", color: "#43474885" }}>
           Across 5 scenarios
         </span>
@@ -35,12 +35,12 @@ const ChoicesDistrubution = () => {
         minHeight={"140px"}
       >
         <Box>
-          <Typography fontSize={"30px"} fontWeight={"600"}>{choicesDistribution.suboptimal.toFixed()}%</Typography>
+          <Typography fontSize={"30px"} fontWeight={"600"}>{choicesDistribution.suboptimal?.toFixed()}%</Typography>
           <Typography fontSize={"12px"} fontWeight={"600"}>Suboptimal</Typography>
         </Box>
         <Box height={"100%"} width="1px" bgcolor={"#FFFFFF7A"}/>
         <Box>
-          <Typography fontSize={"30px"} fontWeight={"600"}>{choicesDistribution.acceptable.toFixed()}%</Typography>
+          <Typography fontSize={"30px"} fontWeight={"600"}>{choicesDistribution.acceptable?.toFixed()}%</Typography>
           <Typography fontSize={"12px"} fontWeight={"600"}>Acceptable</Typography>
         </Box>
       </Stack>
