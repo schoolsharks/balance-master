@@ -29,7 +29,7 @@ export const questions = [
         option: "B",
         optionText:
           "Go into <b>Insights</b> to quickly extract balances for the 6 markets.",
-        timeCost: 0.3,
+        timeCost: 0.5,
         trustShift: 8,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
@@ -75,7 +75,7 @@ export const questions = [
         option: "A",
         optionText:
           "Call Local Sales Manager 'Your Friend' in India, to get a quick but possibly unverified response.",
-        timeCost: 0.1,
+        timeCost: 0.17,
         trustShift: -6,
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup:
@@ -105,7 +105,7 @@ export const questions = [
       {
         option: "A",
         optionText: "Log into Insights to retrieve the data and send to Ms Tan.",
-        timeCost: 0.1,
+        timeCost: 0.17,
         trustShift: 5,
         choise: ChoiceTypes.OPTIMAL,
         scenarioEndPopup: null,
@@ -288,7 +288,7 @@ export const questions = [
         option: "B",
         optionText:
           `You email the billing team for a month's data on all of 'The Company's" accounts.`,
-        timeCost: 0.1,
+        timeCost: 0.17,
         trustShift: -2,
         choise: ChoiceTypes.SUB_OPTIMAL,
         scenarioEndPopup: null,
@@ -374,7 +374,7 @@ export const questions = [
         option: "B",
         optionText:
           `You email the billing team for a list of prices, balances and volumes on all of 'The Company's" accounts.`,
-        timeCost: 0.1,
+        timeCost: 0.17,
         trustShift: 0,
         choise: ChoiceTypes.ACCEPTABLE,
         scenarioEndPopup: null,
