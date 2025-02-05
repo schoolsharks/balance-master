@@ -37,7 +37,7 @@ const GameDescription = () => {
         operations across Europe and Asia Pacific.
         <br />
         Recently, they underwent an organisational restructure, appointing a 
-        <b>new Treasurer, Ms. Tan,</b> who is eager to streamline their banking
+        <b>{" "}new Treasurer, Ms. Tan,</b> who is eager to streamline their banking
         relationships and processes.
       </Typography>
 
