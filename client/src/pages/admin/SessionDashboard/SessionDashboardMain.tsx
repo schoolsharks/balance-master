@@ -1,4 +1,4 @@
-import { CircularProgress, Grid2, Stack } from "@mui/material";
+import { CircularProgress, Grid2, IconButton, Stack, Typography } from "@mui/material";
 import Header from "./Header";
 import GroupTrust from "./GroupTrust";
 import ChoicesDistrubution from "./ChoicesDistrubution";
@@ -7,14 +7,18 @@ import FeedbackAnalysis from "./FeedbackAnalysis";
 import ScenarioAnalysis from "./ScenarioAnalysis";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { ArrowBackIos } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const SessionDashboardMain = () => {
-  const { trustScore, scenariosAnalysis } = useSelector(
+  const { trustScore, scenariosAnalysis, livePlayers } = useSelector(
     (state: RootState) => state.admin
   );
 
+  const navigate=useNavigate()
+
   const analysisCards = [
-    <GroupTrust trustScore={trustScore??0} />,
+    <GroupTrust trustScore={trustScore ?? 0} />,
     <ChoicesDistrubution />,
     <TimeVsEfforts />,
     <FeedbackAnalysis />,
@@ -30,7 +34,19 @@ const SessionDashboardMain = () => {
     )),
   ];
 
-  if (trustScore===null) {
+  if (livePlayers === 0) {
+    return (
+      <Stack bgcolor={"#000"} height={window.innerHeight} direction={"row"} padding={"48px"}>
+        <IconButton onClick={()=>navigate("/admin/home")} sx={{height:"max-content"}}>
+            <ArrowBackIos sx={{ color: "#fff" }} />
+          </IconButton>
+        <Typography color="#898989" marginTop={"6px"}>
+          No Players
+        </Typography>
+      </Stack>
+    );
+  }
+  if (trustScore === null) {
     return (
       <Stack
         minHeight={window.innerHeight}
