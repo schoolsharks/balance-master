@@ -185,7 +185,7 @@ export const questions = [
   {
     id: "3",
     question:
-      "The local RM passed on the work to the support team. Ms Tan grows uneasy. How do you fix it? You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms Tan expects a swift solution.",
+      "You’ve just been assigned to ‘Company Z,’ a group entity of ‘The Company’ that was formerly managed by a Sales Manager who recently left. Ms Tan mentions a prior discussion about routing 2,000 additional wires (MT103) from the US to the UK at the current price point. Since you’re unfamiliar with this entity’s wire pricing, Ms Tan expects a swift solution.",
     options: [
       {
         option: "A",
