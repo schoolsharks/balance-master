@@ -413,7 +413,7 @@ const Completed = () => {
             <Typography fontSize={"14px"} fontWeight={"700"}>
               Time used by you
             </Typography>
-            <Typography fontSize={"25px"} fontWeight={"700"}>
+            <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.timeInHand.toFixed()}{" "}
               <span style={{ fontSize: "15px",fontWeight:"500" }}>hours</span>
             </Typography>
@@ -467,7 +467,7 @@ const Completed = () => {
             </Typography>
           </Stack>
         </Stack>
-        <Typography marginTop={"16px"} fontSize={"18px"} fontWeight={"500"}>You could have used as little as 35.67 hours and none of your colleagues time had you used Insights.<br/>
+        <Typography marginTop={"16px"} lineHeight={"24px"} fontSize={"18px"} fontWeight={"500"}>You could have used as little as 35.67 hours and none of your colleagues time had you used Insights.<br/>
         What could we do with all that time?</Typography>
       </Stack>
 

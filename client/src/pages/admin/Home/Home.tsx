@@ -17,6 +17,7 @@ import {
   resetSession,
 } from "../../../store/admin/sessionInfoActions";
 import DesktopUpperTriangle from "../../../assets/DesktopUpperTriangle.webp";
+import CountdownTimer from "../../../components/CountdownTimer";
 
 const Home = () => {
   const theme = useTheme();
@@ -54,6 +55,8 @@ const Home = () => {
           margin:"0"
         }}
       />
+      <Box justifySelf={"flex-end"} position={"absolute"} right={"32px"} top="32px">
+      <CountdownTimer/></Box>
       <Stack
         minHeight={window.innerHeight}
         bgcolor={"#000000"}
