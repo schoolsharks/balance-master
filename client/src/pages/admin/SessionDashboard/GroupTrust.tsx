@@ -10,7 +10,7 @@ const GroupTrust = ({trustScore}:{trustScore:number}) => {
       <Stack position={"relative"} alignItems={"center"}>
       <SemiCircleProgress value={trustScore}/>
       <Stack position={"absolute"} sx={{bottom:"12px", left:"50%",transform:"translateX(-50%)"}}>
-        <Typography fontSize={"45px"} fontWeight={"800"} lineHeight={"45px"}>{trustScore}%</Typography>
+        <Typography fontSize={"45px"} fontWeight={"800"} lineHeight={"45px"}>{trustScore.toFixed()}%</Typography>
         <Typography fontSize={"15px"} fontWeight={"500"} color="#44444475">The Company</Typography>
       </Stack>
       </Stack>

@@ -93,16 +93,20 @@ export const fetchCurrentSessionInfo = async (
     (ques) => !/[A-Za-z]/.test(ques.id)
   );
 
+  // const scenarioQuestions = questions
+
+
   const choiceMapping = new Map(
-    scenarioQuestions.flatMap((q) =>
+    questions.flatMap((q) =>
       q.options.map((opt) => [`${q.id}_${opt.option}`, opt.choise])
     )
   );
 
+
   const questionTextMapping = new Map(
     scenarioQuestions.map((q) => [q.id, q.question])
   );
-
+  
   const userResponses = await UserModel.find(
     { session: sessionId },
     { responses: 1, _id: 0 }
@@ -114,28 +118,30 @@ export const fetchCurrentSessionInfo = async (
     responses.forEach(({ quesId, option }) => {
       const quesIdStr = String(quesId);
 
-      if (/[A-Za-z]/.test(quesIdStr)) return;
+      // if (/[A-Za-z]/.test(quesIdStr)) return;
 
       const choiceKey = `${quesIdStr}_${option}`;
 
       const choiceType = choiceMapping.get(choiceKey);
+      const scenarioId=quesId.split("")[0]
 
-      if (!responseCounts.has(quesId)) {
-        responseCounts.set(quesId, {
+      if (!responseCounts.has(scenarioId)) {
+        responseCounts.set(scenarioId, {
           optimal: 0,
           acceptable: 0,
           suboptimal: 0,
         });
       }
 
-      const counts = responseCounts.get(quesId);
+      const counts = responseCounts.get(scenarioId);
       if (choiceType === ChoiceTypes.OPTIMAL) counts.optimal++;
       if (choiceType === ChoiceTypes.ACCEPTABLE) counts.acceptable++;
       if (choiceType === ChoiceTypes.SUB_OPTIMAL) counts.suboptimal++;
     });
   });
 
-  // Convert Map to Sorted Array
+
+ 
   const scenariosAnalysis = [...responseCounts.entries()]
     .map(([id, counts]) => ({
       id,

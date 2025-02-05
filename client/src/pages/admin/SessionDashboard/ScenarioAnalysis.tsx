@@ -32,6 +32,7 @@ const ScenarioAnalysis = ({
       <Stack>
         <Stack>
           <Stack
+            
             justifyContent={"center"}
             height={"60px"}
             borderRadius={"5px"}

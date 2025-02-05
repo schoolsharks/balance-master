@@ -16,7 +16,7 @@ const ChoicesDistrubution = () => {
       <Typography fontSize={"1.25rem"} fontWeight={"800"}>
         Optimal Choice
       </Typography>
-      <Typography fontSize={"45px"} fontWeight={"600"}>
+      <Typography fontSize={"45px"} lineHeight={"45px"} fontWeight={"600"}>
         {choicesDistribution.optimal?.toFixed()}%{" "}
         <span style={{ fontSize: "15px", color: "#43474885" }}>
           Across 5 scenarios

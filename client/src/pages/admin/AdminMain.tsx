@@ -11,10 +11,10 @@ const AdminMain = () => {
 
   useEffect(() => {
     dispatch(fetchCurrentSessionInfo())
-    const fetchInterval = setInterval(() => {
-      dispatch(fetchCurrentSessionInfo());
-    }, 5000);
-    return () => clearInterval(fetchInterval);
+    // const fetchInterval = setInterval(() => {
+    //   dispatch(fetchCurrentSessionInfo());
+    // }, 5000);
+    // return () => clearInterval(fetchInterval);
   }, [dispatch]);
 
   return (

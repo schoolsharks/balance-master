@@ -427,7 +427,7 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"14px"} fontWeight={"700"}>
-            Average time used by Group
+            Average time used (Group)
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.overallTimeInhand.toFixed()}{" "}
@@ -444,7 +444,7 @@ const Completed = () => {
             flex={"1"}
           >
             <Typography fontSize={"14px"} fontWeight={"700"}>
-            Effecting colleagues productivity (Time)
+            Effecting colleagues productivity
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.colleaguesTime.toFixed()}<span style={{ fontSize: "15px",fontWeight:"500" }}> hours</span>
@@ -460,14 +460,14 @@ const Completed = () => {
             color={"#000000"}
           >
             <Typography fontSize={"14px"} fontWeight={"700"}>
-            Effecting colleagues productivity by Group
+            Effecting colleagues productivity (Group)
             </Typography>
             <Typography fontSize={"32px"} fontWeight={"700"}>
               {analytics.overallColleaguesTime.toFixed()} <span style={{ fontSize: "15px",fontWeight:"500" }}> hours</span>
             </Typography>
           </Stack>
         </Stack>
-        <Typography marginTop={"16px"} fontSize={"18px"} fontWeight={"500"}>You could have used as little as 22.6 hours and none of your colleagues time had you used Insights.<br/>
+        <Typography marginTop={"16px"} fontSize={"18px"} fontWeight={"500"}>You could have used as little as 35.67 hours and none of your colleagues time had you used Insights.<br/>
         What could we do with all that time?</Typography>
       </Stack>
 

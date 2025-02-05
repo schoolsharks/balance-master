@@ -67,13 +67,25 @@ const GameDescription = () => {
                 aspectRatio: "1/1",
               }}
             />
-            <Typography key={index} dangerouslySetInnerHTML={{ __html: point }}>
+            <Typography
+              key={index}
+              sx={{
+                [theme.breakpoints.up("md")]: {
+                  fontSize: "20px",
+                },
+              }}
+              dangerouslySetInnerHTML={{ __html: point }}
+            >
               {/* {point} */}
             </Typography>
           </Stack>
         ))}
       </Stack>
-      <Typography marginTop={"12px"} marginLeft={"17px"}>
+      <Typography marginTop={"12px"} marginLeft={"17px"} sx={{
+          [theme.breakpoints.up("md")]: {
+            fontSize: "20px",
+          },
+        }}>
         Be smart, act fast, and maximize efficiency to stay ahead. Poor choices
         waste time and risk losing Ms. Tan’s trust.
       </Typography>
